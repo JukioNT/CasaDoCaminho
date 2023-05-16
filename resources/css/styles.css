@@ -1,0 +1,16 @@
+.navbar{
+    display: flex;
+    background-color: #CCCCFF;
+    padding-left: 10px;
+}
+
+.logo{
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.collapse{
+    padding-left: 5%;
+}
