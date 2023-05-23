@@ -21,7 +21,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'CPF',
+        'tipo',
     ];
+
+    public function usuario_evento(){
+        return $this->hasMany('App/Models/usuario_evento', 'user_id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.
