@@ -1,16 +1,23 @@
 .navbar{
-    display: flex;
     background-color: #CCCCFF;
-    padding-left: 10px;
 }
 
 .logo{
-    margin-bottom: 0px;
+    display: flex;
+    width: 70%;
+    align-items: flex-start;
+}
+
+.logo-text{
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
-.collapse{
-    padding-left: 5%;
+.navbar-expand-md {
+    justify-content: space-around !important;
+}
+
+.container h1{
+    text-align: center;
 }

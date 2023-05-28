@@ -9,8 +9,10 @@
 </head>
 <body>
     @component('site.navbar')
-        
     @endcomponent
+    @component('site.message')
+    @endcomponent
+
     @yield('body')
 </body>
 </html>
