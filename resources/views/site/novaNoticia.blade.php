@@ -2,7 +2,7 @@
 @section('title', 'Cadastrar Noticia')
 @section('body')
     <div class="card-body container">
-        <h1 class="py-4">Adcionar nova Noticia</h1>
+        <h1 class="py-4">Adicionar nova Noticia</h1>
         <form action="{{route('gravaNovaNoticia')}}" method="POST">
             @csrf
             <div class="form-group">
