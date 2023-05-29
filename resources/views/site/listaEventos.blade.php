@@ -1,0 +1,42 @@
+@extends('site.layout')
+@section('title', 'Eventos')
+@section('body')
+<div class="container">
+    <h1 class="py-4">Lista de eventos</h1>
+    @if (count($evento) == 0)
+        <p style="text-align: center;">Não há eventos cadastradas</p>
+        <a href="/eventos/cadastrar" class="btn btn-success">Novo evento</a>
+    @else
+        <div class="card-body" style="margin-top: 50px;">
+            <a href="/eventos/cadastrar" class="btn btn-success">Novo evento</a>
+            <table class="table table-ordered table-hover" id="tabelaEventos">
+                <thead>
+                    <tr>
+                        <td>Código</td>
+                        <td>Título</td>
+                        <td>Descrição</td>
+                        <td>Caminho da Imagem</td>
+                        <th>Data do Evento</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($evento as $item => $value)
+                        <tr>
+                            <td>{{ $value['id'] }}</td>
+                            <td>{{ $value['titulo'] }}</td>
+                            <td>{{ $value['descricao'] }}</td>
+                            <td>{{ $value['imagem'] }}</td>
+                            <td>{{ $value['dataEvento'] }}</td>
+                            <td>
+                                <a href="/evento/editar/{{ $value['id'] }}" class="btn btn-primary">Editar</a>
+                                <a href="/evento/deletar/{{ $value['id'] }}" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja deletar?')">Deletar</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    @endif
+</div>
+@endsection

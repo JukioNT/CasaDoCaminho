@@ -11,8 +11,7 @@ class Evento extends Model
     protected $fillable = [
         'titulo', 
         'descricao',
+        'imagem',
+        'dataEvento',
     ];
-    public function usuario_evento(){
-        return $this->hasMany('App/Models/usuario_evento', 'evento_id');
-    }
 }

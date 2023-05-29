@@ -16,7 +16,7 @@
                         aria-haspopup="true" aria-expanded="false">ADM</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
                         <a class="dropdown-item" href="/noticias/lista">Noticias</a>
-                        <a class="dropdown-item" href="#">O que precisa?</a>
+                        <a class="dropdown-item" href="/eventos/lista">Eventos</a>
                     </div>
                 </li>
                 <li class="nav-item">
