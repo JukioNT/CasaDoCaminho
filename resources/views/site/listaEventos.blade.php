@@ -27,10 +27,10 @@
                             <td>{{ $value['titulo'] }}</td>
                             <td>{{ $value['descricao'] }}</td>
                             <td>{{ $value['imagem'] }}</td>
-                            <td>{{ $value['dataEvento'] }}</td>
+                            <td>{{ date('d/m/Y H:i:s', strtotime($value['dataEvento'])) }}</td>
                             <td>
-                                <a href="/evento/editar/{{ $value['id'] }}" class="btn btn-primary">Editar</a>
-                                <a href="/evento/deletar/{{ $value['id'] }}" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja deletar?')">Deletar</a>
+                                <a href="/eventos/editar/{{ $value['id'] }}" class="btn btn-primary">Editar</a>
+                                <a href="/eventos/deletar/{{ $value['id'] }}" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja deletar?')">Deletar</a>
                             </td>
                         </tr>
                     @endforeach

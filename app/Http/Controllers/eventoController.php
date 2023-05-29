@@ -35,8 +35,8 @@ class eventoController extends Controller
         $data->titulo = $request->input('titulo');
         $data->descricao = $request->input('descricao');
         $data->imagem = $request->input('imagem');
-        $dataEvento = Carbon::createFromFormat('Y-m-d\TH:i', $request->input('dataEvento'));
-        $data->dataEvento = $dataEvento->format('Y-m-d H:i:s');
+        $dataConvertida = Carbon::createFromFormat('Y-m-d\TH:i', $request->input('dataEvento'));
+        $data->dataEvento = $dataConvertida->format('Y-m-d H:i:s');
         $data->save();
         return redirect('/eventos/lista')->with('success', 'Evento cadastrado com sucesso');
     }
@@ -56,7 +56,9 @@ class eventoController extends Controller
     {
         $data = Evento::find($id);
         if(isset($data)){
-            $evento = Evento::all();
+            $evento = $data;
+            $dataConvertida = Carbon::createFromFormat('Y-m-d H:i:s', $evento->dataEvento);
+            $evento->dataEvento = $dataConvertida->format('Y-m-d\TH:i');
             $data->evento = $evento;
             return view('site.editaEvento', compact('data'));
         }
