@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md">
     <div class="logo">
         <div class="logo-text">
-            <h2 class="py-1">Casa Do Caminho</h2>
+            <a href="/" style="text-decoration: none; color: inherit;"><h2 class="py-1">Casa Do Caminho</h2></a>
         </div>
     </div>
     <div class="navbar-items">

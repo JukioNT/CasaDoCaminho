@@ -21,3 +21,15 @@
 .container h1{
     text-align: center;
 }
+
+thead{
+    background-color: rgb(194, 194, 194);
+}
+
+table{
+    margin-top: 10px;
+}
+
+.btn-success{
+    margin-top: 10px !important;
+}

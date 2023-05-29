@@ -34,7 +34,7 @@ class noticiaController extends Controller
         $data->descricao = $request->input('descricao');
         $data->imagem = $request->input('imagem');
         $data->save();
-        return redirect('/')->with('success', 'Noticia cadastrada com sucesso');
+        return redirect('/noticias/lista')->with('success', 'Noticia cadastrada com sucesso');
     }
 
     /**
