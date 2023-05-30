@@ -51,12 +51,18 @@ class noticiaController extends Controller
     public function edit(string $id)
     {
         $data = Noticia::find($id);
+        /*
+        echo "<pre>";
+            print_r($data);
+        echo "</pre>";
+       */
         if(isset($data)){
-            $noticia = Noticia::all();
-            $data->noticias = $noticia;
+            //$noticia = Noticia::all();
+            //$data->noticias = $noticia;
             return view('site.editaNoticia', compact('data'));
         }
         return redirect('/noticias/lista')->with('danger', 'Erro ao editar a noticia');
+        
     }
 
     /**
