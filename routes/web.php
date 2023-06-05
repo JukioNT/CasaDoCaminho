@@ -46,4 +46,8 @@ Route::post('/eventos/{id}', [App\Http\Controllers\eventoController::class, 'upd
 Route::get('/eventos/cadastrar', [App\Http\Controllers\eventoController::class, 'create'])->name('novoEvento');
 Route::post('/eventos', [App\Http\Controllers\eventoController::class, 'store'])->name('gravaNovoEvento');
 
+//Rotas Colaboradores
+Route::get('/colaboradores/lista', [App\Http\Controllers\colaboradorController::class, 'index'])->name('listaColaboradores');
+Route::get('/colaboradores/cadastrar', [App\Http\Controllers\colaboradorControllet::class, 'create'])->name('novoColaborador');
+
 require __DIR__.'/auth.php';
