@@ -19,12 +19,14 @@
                         <div class="card-body">
                             <h3 class="py-3">{{$value['titulo']}}</h3>
                             <p class="card-text">{{$value['descricao']}}</p>
+                            @if(Auth::check())
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <a href="/noticias/editar/{{$value['id']}}" type="button" class="btn btn-sm btn-outline-secondary">Editar</a>
                                     <a onclick="return confirm('Tem certeza que deseja deletar?')" href="/noticias/deletar/{{$value['id']}}" type="button" class="btn btn-sm btn-outline-secondary" >Deletar</a>
                                 </div>
                             </div>
+                            @endif
                         </div>
                     </div>
                 @endforeach
@@ -48,12 +50,14 @@
                             <h3 class="py-3">{{$value['titulo']}}</h3>
                             <p class="card-text">{{$value['descricao']}}</p>
                             <div class="d-flex justify-content-between align-items-center">
+                                @if(Auth::check())
                                 <div class="btn-group">
                                     <a href="/eventos/editar/{{$value['id']}}" type="button" class="btn btn-sm btn-outline-secondary">Editar</a>
                                     <a onclick="return confirm('Tem certeza que deseja deletar?')" href="/eventos/deletar/{{$value['id']}}" type="button" class="btn btn-sm btn-outline-secondary" >Deletar</a>
                                     
                                 </div>
-                                <small>Data do evento: {{date('d/m/Y H:i:s', strtotime($value['dataEvento']))}}</small>
+                                @endif
+                                <small>Data do evento: {{date('d/m/Y H:i', strtotime($value['dataEvento']))}}</small>
                             </div>
                         </div>
                     </div>

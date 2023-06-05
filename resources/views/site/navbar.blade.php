@@ -11,6 +11,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
+                @if(Auth::check())
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">ADM</a>
@@ -19,6 +20,7 @@
                         <a class="dropdown-item" href="/eventos/lista">Eventos</a>
                     </div>
                 </li>
+                @endif
                 <li class="nav-item">
                     <a class="nav-link" href="http://example.com" aria-expanded="false">Sobre nós</a>
                 </li>
