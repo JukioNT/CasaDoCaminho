@@ -18,12 +18,6 @@ Route::get('/', [App\Http\Controllers\homeController::class, 'index'])->name('ho
 
 Auth::routes();
 
-//Rotas ADM
-Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('home-admin');
-Route::get('/admin/login', [App\Http\Controllers\Auth\AdminLoginController::class, 'index'])->name('login-admin');
-Route::post('/admin/login', [App\Http\Controllers\Auth\AdminLoginController::class, 'login'])->name('login-admin-submit');
-Route::post('/admin/logout', [App\Http\Controllers\Auth\AdminLoginController::class, 'logout'])->name('logout-admin');
-
 
 //Rotas Noticias
 Route::get('/noticias/lista', [App\Http\Controllers\noticiaController::class, 'index'])->name('listaNoticias');

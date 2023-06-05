@@ -3,7 +3,6 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Auth\AuthenticationException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -27,21 +26,5 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
-    }
-
-    protected function unauthenticated($request, AuthenticationException $exception){
-        $guard = $exception->guards();
-        switch($guard[0]){
-            case 'admin':
-                $redirect = 'login-admin';
-                break;
-            case 'web':
-                $redirect = 'login';
-                break;
-            default:
-                $redirect = 'login';
-                break;
-        }
-        return redirect()->guest(route($redirect));
     }
 }
