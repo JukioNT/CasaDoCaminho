@@ -8,19 +8,34 @@
         <a href="#" class="btn btn-success">Novo colaborador</a>
     @else
         <div class="card-body" style="margin-top: 50px;">
-            <a href="#" class="btn btn-success">Novo colaborador</a>
+            <a href="/colaboradores/cadastrar" class="btn btn-success">Novo colaborador</a>
             <table class="table table-ordered table-hover" id="tabelaEventos">
                 <thead>
                     <tr>
                         <td>Código</td>
-                        <td>Título</td>
+                        <td>Nome</td>
+                        <td>Endereço</td>
+                        <td>Telefone</td>
+                        <td>Nascimento</td>
+                        <td>Email</td>
+                        <td>Disponibilidade</td>
+                        <td>Religião</td>
+                        <td>Afinidade</td>
+                        <td>Ações</td>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($colaborador as $item => $value)
                         <tr>
                             <td>{{ $value['id'] }}</td>
-                            <td>{{ $value['NomeResponsavel'] }}</td>
+                            <td>{{ $value['Nome'] }}</td>
+                            <td>{{ $value['Endereco'] }}</td>
+                            <td>{{ $value['Telefone'] }}</td>
+                            <td>{{ $value['Nascimento'] }}</td>
+                            <td>{{ $value['Email'] }}</td>
+                            <td>{{ $value['Disponibilidade'] }}</td>
+                            <td>{{ $value['Religiao'] }}</td>
+                            <td>{{ $value['Afinidade'] }}</td>
                             <td>
                                 <a href="#" class="btn btn-primary">Editar</a>
                                 <a href="#" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja deletar?')">Deletar</a>

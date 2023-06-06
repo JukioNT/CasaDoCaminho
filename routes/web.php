@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\homeController::class, 'index'])->name('home');
 
+Route::get('/register', [App\Http\Controllers\homeController::class, 'index']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -48,6 +50,7 @@ Route::post('/eventos', [App\Http\Controllers\eventoController::class, 'store'])
 
 //Rotas Colaboradores
 Route::get('/colaboradores/lista', [App\Http\Controllers\colaboradorController::class, 'index'])->name('listaColaboradores');
-Route::get('/colaboradores/cadastrar', [App\Http\Controllers\colaboradorControllet::class, 'create'])->name('novoColaborador');
+Route::get('/colaboradores/cadastrar', [App\Http\Controllers\colaboradorController::class, 'create'])->name('novoColaborador');
+Route::post('/colaboradores', [App\Http\Controllers\colaboradorController::class, 'store'])->name('gravaNovoColaborador');
 
 require __DIR__.'/auth.php';

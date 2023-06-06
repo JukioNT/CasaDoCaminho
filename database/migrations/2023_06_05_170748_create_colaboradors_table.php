@@ -13,18 +13,14 @@ return new class extends Migration
     {
         Schema::create('colaboradors', function (Blueprint $table) {
             $table->id();
-            $table->string('NomeResponsavel');
-            $table->string('EstadoCivil');
-            $table->string('NomeCompanheiro');
-            $table->timestamp('Nascimento');
+            $table->string('Nome');
             $table->string('Endereco');
             $table->string('Telefone');
-            $table->string('Profissao');
-            $table->string('Escolaridade');
-            $table->integer('Nfilhos');
-            $table->timestamp('NascimentoFilhos');
-            $table->integer('RendaFamiliar');
-            $table->string('RecebeAjuda');
+            $table->string('Nascimento');
+            $table->string('Email');
+            $table->string('Disponibilidade');
+            $table->string('Religiao');
+            $table->string('Afinidade');
             $table->timestamps();
         });
     }

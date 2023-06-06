@@ -18,11 +18,12 @@
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
                         <a class="dropdown-item" href="/noticias/lista">Noticias</a>
                         <a class="dropdown-item" href="/eventos/lista">Eventos</a>
+                        <a class="dropdown-item" href="/colaboradores/lista" >Colaboradores</a>
                     </div>
                 </li>
                 @endif
                 <li class="nav-item">
-                    <a class="nav-link" href="http://example.com" aria-expanded="false">Sobre nós</a>
+                    <a class="nav-link" href="/sobrenos" aria-expanded="false">Sobre nós</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
