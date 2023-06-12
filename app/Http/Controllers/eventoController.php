@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Evento;
 use Carbon\Carbon;
 
@@ -35,10 +36,11 @@ class eventoController extends Controller
      */
     public function store(Request $request)
     {
+        $path = $request->file('imagem')->store('images', 'public');
         $data = new Evento();
         $data->titulo = $request->input('titulo');
         $data->descricao = $request->input('descricao');
-        $data->imagem = $request->input('imagem');
+        $data->imagem = $path;
         $dataConvertida = Carbon::createFromFormat('Y-m-d\TH:i', $request->input('dataEvento'));
         $data->dataEvento = $dataConvertida->format('Y-m-d H:i:s');
         $data->save();
@@ -94,6 +96,8 @@ class eventoController extends Controller
     {
         $data = Evento::find($id);
         if(isset($data)){
+            $imagem = $data->imagem;    
+            Storage::disk('public')->delete($imagem);
             $data->delete();
         }else{
             return redirect('/eventos/lista')->with('danger', 'Erro ao deletar o evento');

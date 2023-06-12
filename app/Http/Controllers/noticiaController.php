@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Noticia;
 
 class noticiaController extends Controller
@@ -33,10 +34,11 @@ class noticiaController extends Controller
      */
     public function store(Request $request)
     {
+        $path = $request->file('imagem')->store('images', 'public');
         $data = new Noticia();
         $data->titulo = $request->input('titulo');
         $data->descricao = $request->input('descricao');
-        $data->imagem = $request->input('imagem');
+        $data->imagem = $path;
         $data->save();
         return redirect('/noticias/lista')->with('success', 'Noticia cadastrada com sucesso');
     }
@@ -93,6 +95,8 @@ class noticiaController extends Controller
     {
         $data = Noticia::find($id);
         if(isset($data)){
+            $imagem = $data->imagem;    
+            Storage::disk('public')->delete($imagem);
             $data->delete();
         }else{
             return redirect('/noticias/lista')->with('danger', 'Erro ao deletar a noticia');

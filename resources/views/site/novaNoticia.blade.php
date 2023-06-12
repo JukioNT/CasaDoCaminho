@@ -3,7 +3,7 @@
 @section('body')
     <div class="card-body container">
         <h1 class="py-4">Adicionar nova Noticia</h1>
-        <form action="{{route('gravaNovaNoticia')}}" method="POST">
+        <form action="{{route('gravaNovaNoticia')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="titulo">Titulo da Noticia:</label>

@@ -18,6 +18,23 @@
     justify-content: space-around !important;
 }
 
+.scroll-container{
+    width: 80vw;
+    height: 30vh;
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+}
+
+.scroll-container .col{
+    margin: 0 10px 0 10px;
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: center;
+}
+
 .container h1{
     text-align: center;
 }
