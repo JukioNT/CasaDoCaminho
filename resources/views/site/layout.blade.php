@@ -7,6 +7,7 @@
     <title>@yield('title')</title>
     @vite(['resources/js/app.js'])
 </head>
+@yield('script')
 <body>
     @component('site.navbar')
     @endcomponent

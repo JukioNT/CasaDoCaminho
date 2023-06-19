@@ -50,6 +50,9 @@ Route::post('/eventos', [App\Http\Controllers\eventoController::class, 'store'])
 
 //Rotas Colaboradores
 Route::get('/colaboradores/lista', [App\Http\Controllers\colaboradorController::class, 'index'])->name('listaColaboradores');
+Route::get('/colaboradores/editar/{id}', [App\Http\Controllers\colaboradorController::class, 'edit'])->name('editaColaborador');
+Route::get('/colaboradores/deletar/{id}', [App\Http\Controllers\colaboradorController::class, 'destroy'])->name('deletaColaborador');
+Route::post('/colaboradores/{id}', [App\Http\Controllers\colaboradorController::class, 'update'])->name('gravaEditaColaborador');
 Route::get('/colaboradores/cadastrar', [App\Http\Controllers\colaboradorController::class, 'create'])->name('novoColaborador');
 Route::post('/colaboradores', [App\Http\Controllers\colaboradorController::class, 'store'])->name('gravaNovoColaborador');
 

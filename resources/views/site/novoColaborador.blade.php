@@ -8,7 +8,7 @@
             <div class="form-group">
                 <label for="titulo">Nome:</label>
                 <input type="text" class="form-control" name="Nome" id="Nome"/>
-                <label for="descricao">Endereco:</label>
+                <label for="descricao">Endereço:</label>
                 <input type="text" class="form-control" name="Endereco" id="Endereco">
                 <label for="imagem">Telefone:</label>
                 <input type="text" class="form-control" name="Telefone" id="Telefone">

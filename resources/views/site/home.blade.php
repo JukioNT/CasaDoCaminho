@@ -2,7 +2,7 @@
 @section('title', 'Noticias')
 @section('body')
     <div class="album py-5">
-        <div class="container">
+        <div class="container" style="width: 50%">
             <h1>Noticias</h1>
             <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="false">
                 <div class="carousel-indicators">
