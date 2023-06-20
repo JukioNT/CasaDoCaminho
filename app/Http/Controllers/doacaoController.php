@@ -3,15 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Doacao;
 
 class doacaoController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('site.listaDoacao');
+        $doacao = Doacao::all();
+        return view('site.listaDoacoes', compact('doacao'));
     }
 
     /**
@@ -19,7 +25,7 @@ class doacaoController extends Controller
      */
     public function create()
     {
-        //
+        return view('site.novaDoacao');
     }
 
     /**
@@ -27,7 +33,11 @@ class doacaoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new Doacao();
+        $data->descricao = $request->input('descricao');
+        $data->quantidade = $request->input('quantidade');
+        $data->save();
+        return redirect('/doacoes/lista')->with('success', 'Doação cadastrada com sucesso');
     }
 
     /**
@@ -35,7 +45,7 @@ class doacaoController extends Controller
      */
     public function show(string $id)
     {
-        //
+        
     }
 
     /**

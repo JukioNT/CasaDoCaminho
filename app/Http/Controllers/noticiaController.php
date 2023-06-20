@@ -58,7 +58,7 @@ class noticiaController extends Controller
     {
         $data = Noticia::find($id);
         if(isset($data)){
-            return view('site.editaNoticia', compact('data'));
+            return view('site.editaNoticia', compact('data'));$request->input('imagem');
         }
         return redirect('/noticias/lista')->with('danger', 'Erro ao editar a noticia');
         
@@ -73,7 +73,12 @@ class noticiaController extends Controller
         if(isset($data)){
             $data->titulo = $request->input('titulo');
             $data->descricao = $request->input('descricao');
-            $data->imagem = $request->input('imagem');
+            $file = $request->file('imagem');
+            if(isset($file)){
+                $filename = 'images/'.date('YmdHi').$file->getClientOriginalName();
+                $file-> move(public_path('storage/images'), $filename);
+                $data->imagem = $filename;
+            }
             $data->save();
         }else{
             return redirect('/noticias/lista')->with('danger', 'Erro ao editar a noticia');

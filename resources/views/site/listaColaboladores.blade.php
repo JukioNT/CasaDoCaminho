@@ -21,7 +21,7 @@
                         <td>Disponibilidade</td>
                         <td>Religião</td>
                         <td>Afinidade</td>
-                        <td>Ações</td>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>

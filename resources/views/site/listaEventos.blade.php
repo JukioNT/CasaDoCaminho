@@ -16,7 +16,7 @@
                         <td>Título</td>
                         <td>Descrição</td>
                         <td>Caminho da Imagem</td>
-                        <th>Data do Evento</th>
+                        <td>Data do Evento</td>
                         <th>Ações</th>
                     </tr>
                 </thead>

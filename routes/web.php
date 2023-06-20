@@ -56,4 +56,12 @@ Route::post('/colaboradores/{id}', [App\Http\Controllers\colaboradorController::
 Route::get('/colaboradores/cadastrar', [App\Http\Controllers\colaboradorController::class, 'create'])->name('novoColaborador');
 Route::post('/colaboradores', [App\Http\Controllers\colaboradorController::class, 'store'])->name('gravaNovoColaborador');
 
+//Rotas Doações
+Route::get('/doacoes/lista', [App\Http\Controllers\doacaoController::class, 'index'])->name('listaDoacoes');
+
+
+
+Route::get('/doacoes/cadastrar', [App\Http\Controllers\doacaoController::class, 'create'])->name('novaDoacao');
+Route::post('/doacoes', [App\Http\Controllers\doacaoController::class, 'store'])->name('gravaNovaDoacao');
+
 require __DIR__.'/auth.php';
