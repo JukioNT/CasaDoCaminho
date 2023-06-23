@@ -1,14 +1,26 @@
-.navbar{
-    background-color: #CCCCFF;
+:root {
+    --text: #000000;
+    --background: #f3ece2;
+    --primary: #ccccff;
+    --secondary: #f9f5f1;
+    --accent: #330e34;
 }
 
-.logo{
+body {
+    background-color: var(--background);
+}
+
+.navbar {
+    background-color: var(--primary);
+}
+
+.logo {
     display: flex;
     width: 70%;
     align-items: flex-start;
 }
 
-.logo-text{
+.logo-text {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -18,7 +30,7 @@
     justify-content: space-around !important;
 }
 
-.scroll-container{
+.scroll-container {
     width: 80vw;
     height: 30vh;
     display: flex;
@@ -26,7 +38,7 @@
     scroll-snap-type: x mandatory;
 }
 
-.scroll-container .col{
+.scroll-container .col {
     margin: 0 10px 0 10px;
     min-width: 100px;
     display: flex;
@@ -35,19 +47,28 @@
     scroll-snap-align: center;
 }
 
-.container h1{
+.evento-img{
+    width: 30%;
+    aspect-ratio: 16/9;
+}
+
+.evento-titulo{
+    
+}
+
+.container h1 {
     text-align: center;
 }
 
-thead{
+thead {
     background-color: rgb(194, 194, 194);
 }
 
-table{
+table {
     margin-top: 10px;
 }
 
-.btn-success{
+.btn-success {
     margin-top: 10px !important;
 }
 
@@ -57,10 +78,10 @@ table{
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
-  }
+}
 
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
     .bd-placeholder-img-lg {
-      font-size: 3.5rem;
+        font-size: 3.5rem;
     }
-  }
+}
