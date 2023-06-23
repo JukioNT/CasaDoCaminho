@@ -51,14 +51,27 @@ body {
 }
 
 .vignette{
-    
+    position: relative;
+    display: inline-block;
 }
 
 .noticia-img{
-    background-image: radial-gradient(circle, transparent, black);
+    display: block;
     border-radius: 12px;
     width: 100%;
     aspect-ratio: 16/9;
+}
+
+.noticia-left-arrow{
+    background-image: url("images/left-arrow.svg");
+}
+
+.noticia-right-arrow{
+    background-image: url("images/right-arrow.svg");
+}
+
+.noticia-button{
+    background-color: var(--accent) !important;
 }
 
 .eventos{
