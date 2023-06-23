@@ -80,7 +80,12 @@ class eventoController extends Controller
         if(isset($data)){
             $data->titulo = $request->input('titulo');
             $data->descricao = $request->input('descricao');
-            $data->imagem = $request->input('imagem');
+            $file = $request->file('imagem');
+            if(isset($file)){
+                $filename = 'images/'.date('YmdHi').$file->getClientOriginalName();
+                $file-> move(public_path('storage/images'), $filename);
+                $data->imagem = $filename;
+            }
             $data->dataEvento = $request->input('dataEvento');
             $data->save();
         }else{
