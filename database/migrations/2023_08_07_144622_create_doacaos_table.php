@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('doacaos', function (Blueprint $table) {
             $table->id();
-            $table->string('descricao');
-            $table->integer('quantidade');
+            $table->unsignedBigInteger('doacao_id');
+            $table->foreign('doacao_id')->references('id')->on('tipo_doacaos');
+            $table->unsignedBigInteger('familia_id');
+            $table->foreign('familia_id')->references('id')->on('familias');
             $table->timestamps();
         });
     }
