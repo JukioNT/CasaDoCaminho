@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Doacao;
+use App\Models\Familia;
+use App\Models\TipoDoacao;
+use App\Http\Controllers\tipoDoacaoController;
 
 class doacaoController extends Controller
 {
@@ -16,8 +19,12 @@ class doacaoController extends Controller
      */
     public function index()
     {
-        $doacao = Doacao::all();
-        return view('site.listaDoacoes', compact('doacao'));
+        $doacoes = Doacao::select('familias.NomeResponsavel', 'tipo_doacaos.tipo_doacao', 'doacaos.created_at', 'doacaos.id')
+        ->join('familias', 'familias.id', '=', 'doacaos.familia_id')
+        ->join('tipo_doacaos', 'doacaos.doacao_id', '=', 'tipo_doacaos.id')
+        ->orderBy('doacaos.created_at', 'desc')
+        ->get();
+        return view('site.listaDoacoes', compact('doacoes'));
     }
 
     /**
@@ -25,7 +32,9 @@ class doacaoController extends Controller
      */
     public function create()
     {
-        return view('site.novaDoacao');
+        $familias = Familia::all();
+        $tipoDoacao = TipoDoacao::all();
+        return view('site.novaDoacao', compact('familias', 'tipoDoacao'));
     }
 
     /**
@@ -34,8 +43,8 @@ class doacaoController extends Controller
     public function store(Request $request)
     {
         $data = new Doacao();
-        $data->descricao = $request->input('descricao');
-        $data->quantidade = $request->input('quantidade');
+        $data->doacao_id = $request->input('doacao_id');
+        $data->familia_id = $request->input('familia_id');
         $data->save();
         return redirect('/doacoes/lista')->with('success', 'Doação cadastrada com sucesso');
     }
@@ -53,7 +62,20 @@ class doacaoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $doacoes = Doacao::select('familias.NomeResponsavel', 'doacaos.doacao_id', 'doacaos.created_at', 'doacaos.id')
+        ->join('familias', 'familias.id', '=', 'doacaos.familia_id')
+        ->join('tipo_doacaos', 'familias.id', '=', 'tipo_doacaos.id')
+        ->where('doacaos.id', '=', $id)
+        ->orderBy('doacaos.created_at', 'desc')
+        ->get();
+        $doacoes = json_decode($doacoes, true);
+        $familias = Familia::all();
+        $tipoDoacao = TipoDoacao::all();
+        if(isset($familias) || isset($tipoDoacao)){
+            return view('site.editaDoacoes', compact('familias', 'tipoDoacao', 'doacoes'));
+        }
+        return redirect('/doacoes/lista')->with('danger', 'Erro ao editar a doação');
+        
     }
 
     /**
@@ -61,7 +83,14 @@ class doacaoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = Doacao::find($id);
+        if(isset($data)){
+            $data->doacao_id = $request->input('doacao_id');
+            $data->familia_id = $request->input('familia_id');
+            $data->save();
+        }else{
+            return redirect('/doacoes/lista')->with('danger', 'Erro ao editar Doação');
+        }
     }
 
     /**

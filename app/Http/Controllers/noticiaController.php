@@ -58,7 +58,7 @@ class noticiaController extends Controller
     {
         $data = Noticia::find($id);
         if(isset($data)){
-            return view('site.editaNoticia', compact('data'));$request->input('imagem');
+            return view('site.editaNoticia', compact('data'));
         }
         return redirect('/noticias/lista')->with('danger', 'Erro ao editar a noticia');
         

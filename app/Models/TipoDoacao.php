@@ -10,6 +10,7 @@ class TipoDoacao extends Model
     use HasFactory;
     protected $fillable = [
         'tipo_doacao',
+        'quantidade'
     ];
 
     public function docaos(){

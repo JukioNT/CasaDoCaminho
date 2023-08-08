@@ -58,13 +58,16 @@ Route::post('/colaboradores', [App\Http\Controllers\colaboradorController::class
 
 //Rotas Doações
 Route::get('/doacoes/lista', [App\Http\Controllers\doacaoController::class, 'index'])->name('listaDoacoes');
+Route::get('/doacoes/editar/{id}', [App\Http\Controllers\doacaoController::class, 'edit'])->name('editaDoacoes');
+
+Route::post('/doacoes/{id}', [App\Http\Controllers\doacaoController::class, 'update'])->name('gravaEditaDoacoes');
 Route::get('/doacoes/cadastrar', [App\Http\Controllers\doacaoController::class, 'create'])->name('novaDoacao');
 Route::post('/doacoes', [App\Http\Controllers\doacaoController::class, 'store'])->name('gravaNovaDoacao');
 
 //Rotas Tipo Doações
 Route::get('/tipodoacoes/lista', [App\Http\Controllers\tipoDoacaoController::class, 'index'])->name('listaTipoDoacoes');
 Route::get('/tipodoacoes/cadastrar', [App\Http\Controllers\tipoDoacaoController::class, 'create'])->name('novoTipoDoacao');
-Route::post('/doacoes', [App\Http\Controllers\tipoDoacaoController::class, 'store'])->name('gravaNovoTipoDoacao');
+Route::post('/tipodoacoes', [App\Http\Controllers\tipoDoacaoController::class, 'store'])->name('gravaNovoTipoDoacao');
 
 
 
