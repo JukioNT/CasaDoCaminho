@@ -14,6 +14,7 @@
                     <tr>
                         <td>Tipo Doação</td>
                         <td>Família Beneficiada</td>
+                        <td>Quantidade</td>
                         <td>Data doação</td>
                         <th>Ações</th>
                     </tr>
@@ -23,9 +24,9 @@
                         <tr>
                             <td>{{ $value['tipo_doacao'] }}</td>
                             <td>{{ $value['NomeResponsavel'] }}</td>
-                            <td>{{ date('d/m/Y H:i:s', strtotime($value['created_at'])) }}</td>
+                            <td>{{ $value['quantidade'] }}</td>
+                            <td>{{ date('d/m/Y H:i:s', strtotime($value['data_doacao'])) }}</td>
                             <td>
-                                <a href="/doacoes/editar/{{ $value['id'] }}" class="btn btn-primary">Editar</a>
                                 <a href="/doacoes/deletar/{{ $value['id'] }}" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja deletar?')">Deletar</a>
                             </td>
                         </tr>

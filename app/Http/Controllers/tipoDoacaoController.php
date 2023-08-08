@@ -68,17 +68,16 @@ class tipoDoacaoController extends Controller
         //
     }
 
-    public function reduzirdoacao($id, int $quantidade){
+    public function form(Request $request, string $id){
+        $data = array();
+        $data['id'] = $id;
+        return view('site.incrementaTipoDoacao', compact('data'));
+    }
+
+    public function increment(Request $request, string $id){
         $data = TipoDoacao::find($id);
-        if($data){
-            if($data > 0){
-                $data->decrement('quantidade', $quantidade);
-            }else{
-                return redirect('/tipodoacoes/lista')->with('danger', 'Não há este tipo de produto disponível');
-            }
-        }else{
-            return redirect('/tipodoacoes/lista')->with('danger', 'Erro ao cadastrar doação, tente novamente');
-        }
-        return 1;
+        $data->quantidade = $data->quantidade + $request->input('quantidade');
+        $data->save();
+        return redirect('/tipodoacoes/lista')->with('success', 'Doação incrementada com sucesso');
     }
 }

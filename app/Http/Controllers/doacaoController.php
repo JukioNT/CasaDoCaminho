@@ -19,10 +19,10 @@ class doacaoController extends Controller
      */
     public function index()
     {
-        $doacoes = Doacao::select('familias.NomeResponsavel', 'tipo_doacaos.tipo_doacao', 'doacaos.created_at', 'doacaos.id')
+        $doacoes = Doacao::select('familias.NomeResponsavel', 'tipo_doacaos.tipo_doacao', 'doacaos.data_doacao', 'doacaos.id', 'doacaos.quantidade')
         ->join('familias', 'familias.id', '=', 'doacaos.familia_id')
         ->join('tipo_doacaos', 'doacaos.doacao_id', '=', 'tipo_doacaos.id')
-        ->orderBy('doacaos.created_at', 'desc')
+        ->orderBy('doacaos.data_doacao', 'desc')
         ->get();
         return view('site.listaDoacoes', compact('doacoes'));
     }
@@ -42,11 +42,21 @@ class doacaoController extends Controller
      */
     public function store(Request $request)
     {
-        $data = new Doacao();
-        $data->doacao_id = $request->input('doacao_id');
-        $data->familia_id = $request->input('familia_id');
-        $data->save();
-        return redirect('/doacoes/lista')->with('success', 'Doação cadastrada com sucesso');
+        $doacao = TipoDoacao::find($request->input('doacao_id'));
+        if($doacao->quantidade - $request->input('quantidade') < 0){
+            return redirect('/doacoes/lista')->with('danger', 'Não há a quantidade de itens para doar no estoque');
+        }else{
+            $doacao->quantidade = $doacao->quantidade - $request->input('quantidade');
+            $doacao->save();
+            $data = new Doacao();
+            $data->doacao_id = $request->input('doacao_id');
+            $data->quantidade = $request->input('quantidade');
+            $data->familia_id = $request->input('familia_id');
+            date_default_timezone_set('America/Sao_Paulo');
+            $data->data_doacao = date("Y-m-d H:i:s");
+            $data->save();
+            return redirect('/doacoes/lista')->with('success', 'Doação cadastrada com sucesso');
+        }
     }
 
     /**
@@ -98,6 +108,12 @@ class doacaoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = Doacao::find($id);
+        if(isset($data)){
+            $data->delete();
+        }else{
+            return redirect('/doacoes/lista')->with('danger', 'Erro ao deletar Doação');
+        }
+        return redirect('/doacoes/lista')->with('success', 'Doação deletada com sucesso');
     }
 }

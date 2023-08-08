@@ -25,6 +25,7 @@
                             <td>{{ $value['tipo_doacao'] }}</td>
                             <td>{{ $value['quantidade'] }}</td>
                             <td>
+                                <a href="/tipodoacoes/incrementaform/{{ $value['id'] }}" class="btn btn-success">Incrementar</a>
                                 <a href="/doacoes/editar/{{ $value['id'] }}" class="btn btn-primary">Editar</a>
                                 <a href="/doacoes/deletar/{{ $value['id'] }}" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja deletar?')">Deletar</a>
                             </td>

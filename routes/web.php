@@ -58,14 +58,15 @@ Route::post('/colaboradores', [App\Http\Controllers\colaboradorController::class
 
 //Rotas Doações
 Route::get('/doacoes/lista', [App\Http\Controllers\doacaoController::class, 'index'])->name('listaDoacoes');
-Route::get('/doacoes/editar/{id}', [App\Http\Controllers\doacaoController::class, 'edit'])->name('editaDoacoes');
-
+Route::get('/doacoes/deletar/{id}', [App\Http\Controllers\doacaoController::class, 'destroy'])->name('deletaDoacao');
 Route::post('/doacoes/{id}', [App\Http\Controllers\doacaoController::class, 'update'])->name('gravaEditaDoacoes');
 Route::get('/doacoes/cadastrar', [App\Http\Controllers\doacaoController::class, 'create'])->name('novaDoacao');
 Route::post('/doacoes', [App\Http\Controllers\doacaoController::class, 'store'])->name('gravaNovaDoacao');
 
 //Rotas Tipo Doações
 Route::get('/tipodoacoes/lista', [App\Http\Controllers\tipoDoacaoController::class, 'index'])->name('listaTipoDoacoes');
+Route::get('/tipodoacoes/incrementaform/{id}', [App\Http\Controllers\tipoDoacaoController::class, 'form'])->name('formincrementaDoacoes');
+Route::post('/tipodoacoes/incrementa/{id}', [App\Http\Controllers\tipoDoacaoController::class, 'increment'])->name('incrementaDoacoes');
 Route::get('/tipodoacoes/cadastrar', [App\Http\Controllers\tipoDoacaoController::class, 'create'])->name('novoTipoDoacao');
 Route::post('/tipodoacoes', [App\Http\Controllers\tipoDoacaoController::class, 'store'])->name('gravaNovoTipoDoacao');
 

@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreign('doacao_id')->references('id')->on('tipo_doacaos');
             $table->unsignedBigInteger('familia_id');
             $table->foreign('familia_id')->references('id')->on('familias');
+            $table->integer('quantidade');
+            $table->dateTime('data_doacao');
             $table->timestamps();
         });
     }
