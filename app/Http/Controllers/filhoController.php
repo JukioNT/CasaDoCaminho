@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Filho;
+use App\Models\Familia;
 use Illuminate\Support\Facades\DB;
 
 
@@ -18,7 +19,7 @@ class filhoController extends Controller
     public function index()
     {
         
-        $filhos = Filho::select('filhos.Nome', 'filhos.Nascimento', 'familias.NomeResponsavel', DB::raw('YEAR(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(filhos.Nascimento))) AS idade'))
+        $filhos = Filho::select('filhos.id', 'filhos.Nome', 'filhos.Nascimento', 'familias.NomeResponsavel', DB::raw('YEAR(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(filhos.Nascimento))) AS idade'))
         ->join('familias', 'filhos.familia_id', '=', 'familias.id')
         ->orderBy('familias.NomeResponsavel')
         ->get();
@@ -31,7 +32,8 @@ class filhoController extends Controller
      */
     public function create()
     {
-        //
+        $familias = Familia::all();
+        return view('site.novoFilho', compact('familias'));
     }
 
     /**
@@ -39,7 +41,13 @@ class filhoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new Filho();
+        
+        $data->nome = $request->input('nome');
+        $data->nascimento = $request->input('nascimento');
+        $data->familia_id = $request->input('familia_id');
+        $data->save();
+        return redirect('/filhos/lista')->with('success', 'FIlho cadastrado com sucesso');
     }
 
     /**
@@ -55,7 +63,12 @@ class filhoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = Filho::find($id);
+        $familias = Familia::all() ;
+        if(isset($data)){
+            return view('site.editaFilho', compact('data', 'familias'));
+        }
+        return redirect('/filho/lista')->with('danger', 'Erro ao editar filho');
     }
 
     /**
@@ -63,7 +76,16 @@ class filhoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = Filho::find($id);
+        if(isset($data)){
+            $data->nome = $request->input('nome');
+            $data->nascimento = $request->input('nascimento');
+            $data->familia_id = $request->input('familia_id');
+            $data->save();
+        }else{
+            return redirect('/filhos/lista')->with('danger', 'Erro ao editar Filho');
+        }
+        return redirect('/filhos/lista')->with('success', 'Filho editado com sucesso');
     }
 
     /**
@@ -71,6 +93,12 @@ class filhoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = Filho::find($id);
+        if(isset($data)){
+            $data->delete();
+        }else{
+            return redirect('/filhos/lista')->with('danger', 'Erro ao deletar o Filho');
+        }
+        return redirect('/filhos/lista')->with('success', 'Filho deletado com sucesso');
     }
 }

@@ -2,7 +2,7 @@
 @section('title', 'Cadastrar Noticia')
 @section('body')
     <div class="card-body container">
-        <h1 class="py-4">Lista de noticias</h1>
+        <h1 class="py-4">Editar Noticia</h1>
         <form action="/noticias/{{$data->id}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">

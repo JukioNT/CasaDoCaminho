@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('filhos', function (Blueprint $table) {
             $table->id();
-            $table->string('Nome');
-            $table->date('Nascimento');
+            $table->string('nome');
+            $table->date('nascimento');
             $table->unsignedBigInteger('familia_id');
             $table->foreign('familia_id')->references('id')->on('familias');
             $table->timestamps();

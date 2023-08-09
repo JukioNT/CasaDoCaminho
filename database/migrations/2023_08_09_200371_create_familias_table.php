@@ -14,13 +14,15 @@ return new class extends Migration
         Schema::create('familias', function (Blueprint $table) {
             $table->id();
             $table->string('NomeResponsavel');
-            $table->string('estadoCivil');
+            $table->unsignedBigInteger('estadoCivil_id');
+            $table->foreign('estadoCivil_id')->references('id')->on('estado_civils');
             $table->string('nomeCompanhiero')->nullable();
             $table->date('nascimento');
             $table->string('endereço');
             $table->string('telefone');
             $table->string('profissão');
-            $table->string('escolaridade');
+            $table->unsignedBigInteger('escolaridade_id');
+            $table->foreign('escolaridade_id')->references('id')->on('escolaridades');
             $table->integer('Nfilhos');
             $table->integer('rendafamiliar');
             $table->string('recebeajuda', 1);

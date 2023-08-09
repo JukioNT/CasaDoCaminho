@@ -1,9 +1,6 @@
 @extends('site.layout')
 @section('title', 'Filhos')
 @section('body')
-<pre>
-    {{$filhos}}
-</pre>
 <div class="container">
     <h1 class="py-4">Lista de filhos</h1>
     @if (count($filhos) == 0)
@@ -11,7 +8,7 @@
         <a href="/filhos/cadastrar" class="btn btn-success">Novo Filho</a>
     @else
         <div class="card-body" style="margin-top: 50px;">
-            <a href="/filhos/cadastrar" class="btn btn-success">Nova noticia</a>
+            <a href="/filhos/cadastrar" class="btn btn-success">Novo Filho</a>
             <table class="table table-ordered table-hover" id="tabelaFilhos">
                 <thead>
                     <tr>

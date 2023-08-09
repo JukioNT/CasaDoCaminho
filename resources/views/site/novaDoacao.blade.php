@@ -11,7 +11,7 @@
                     @foreach ($tipoDoacao as $item)
                         <option value="{{$item->id}}">{{$item->tipo_doacao}}({{$item->quantidade}})</option>
                     @endforeach
-                  </select>
+                </select>
                   <label for="quantidade">Quantidade a doar:</label>
                   <input class="form-control" type="number" name="quantidade" id="quantidade">
                   <label for="familia_id">Familia a doar:</label>

@@ -20,4 +20,10 @@ class Familia extends Model
     public function filhos(){
         return $this->belongsTo('App/Models/Filho');
     }
+    public function estado_civils(){
+        return $this->belongsTo('App/Models/EstadoCivil');
+    }
+    public function escolaridades(){
+        return $this->belongsTo('App/Models/Escolaridade');
+    }
 }
