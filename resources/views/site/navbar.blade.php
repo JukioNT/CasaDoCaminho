@@ -19,8 +19,9 @@
                         <a class="dropdown-item" href="/noticias/lista">Noticias</a>
                         <a class="dropdown-item" href="/eventos/lista">Eventos</a>
                         <a class="dropdown-item" href="/colaboradores/lista" >Colaboradores</a>
-                        <a class="dropdown-item" href="/tipodoacoes/lista" >Tipos Doações</a>
+                        <a class="dropdown-item" href="/tipodoacoes/lista" >Produtos p/ Doação</a>
                         <a class="dropdown-item" href="/doacoes/lista" >Doações</a>
+                        <a class="dropdown-item" href="/filhos/lista" >Filhos</a>
                     </div>
                 </li>
                 @endif

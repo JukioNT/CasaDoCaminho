@@ -70,7 +70,13 @@ Route::post('/tipodoacoes/incrementa/{id}', [App\Http\Controllers\tipoDoacaoCont
 Route::get('/tipodoacoes/cadastrar', [App\Http\Controllers\tipoDoacaoController::class, 'create'])->name('novoTipoDoacao');
 Route::post('/tipodoacoes', [App\Http\Controllers\tipoDoacaoController::class, 'store'])->name('gravaNovoTipoDoacao');
 
-
+//Rotas Filhos
+Route::get('/filhos/lista', [App\Http\Controllers\filhoController::class, 'index'])->name('listaFilhos');
+Route::get('/filhos/editar/{id}', [App\Http\Controllers\filhoController::class, 'edit'])->name('editaFilho');
+Route::get('/filhos/deletar/{id}', [App\Http\Controllers\filhoController::class, 'destroy'])->name('deletaFilho');
+Route::post('/filhos/{id}', [App\Http\Controllers\filhoController::class, 'update'])->name('gravaEditaFilho');
+Route::get('/filhos/cadastrar', [App\Http\Controllers\filhoController::class, 'create'])->name('novoFilho');
+Route::post('/filhos', [App\Http\Controllers\filhoController::class, 'store'])->name('gravaNovoFilho');
 
 
 

@@ -15,16 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('NomeResponsavel');
             $table->string('estadoCivil');
-            $table->string('nomeCompanhiero');
-            $table->string('nascimento');
+            $table->string('nomeCompanhiero')->nullable();
+            $table->date('nascimento');
             $table->string('endereço');
             $table->string('telefone');
             $table->string('profissão');
             $table->string('escolaridade');
             $table->integer('Nfilhos');
-            $table->date('nascimentosfilhos');
             $table->integer('rendafamiliar');
-            $table->string('recebeajuda');
+            $table->string('recebeajuda', 1);
             $table->timestamps();
         });
     }

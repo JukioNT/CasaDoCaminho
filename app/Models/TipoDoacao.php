@@ -14,6 +14,6 @@ class TipoDoacao extends Model
     ];
 
     public function docaos(){
-        return $this->hasMany('App/Models/Doacao');
+        return $this->hasMany('App/Models/Doacao', 'doacao_id');
     }
 }

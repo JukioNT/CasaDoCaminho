@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Familia extends Model
+class Filho extends Model
 {
     use HasFactory;
     protected $guarded = [
@@ -14,10 +14,7 @@ class Familia extends Model
         'updated_at',
     ];
 
-    public function docaos(){
-        return $this->hasMany('App/Models/Doacao', 'familia_id');
-    }
-    public function filhos(){
-        return $this->belongsTo('App/Models/Filho');
+    public function familias(){
+        return $this->belongsTo('App/Models/Familia');
     }
 }

@@ -2,10 +2,10 @@
 @section('title', 'Tipo Doações')
 @section('body')
 <div class="container">
-    <h1 class="py-4">Lista de Tipo Doações</h1>
+    <h1 class="py-4">Lista de Produtos para Doação</h1>
     @if (count($tipoDoacao) == 0)
-        <p style="text-align: center;">Não há doações cadastradas</p>
-        <a href="/tipodoacoes/cadastrar" class="btn btn-success">Nova doação</a>
+        <p style="text-align: center;">Não há produtos cadastradas</p>
+        <a href="/tipodoacoes/cadastrar" class="btn btn-success">Novo produto</a>
     @else
         <div class="card-body" style="margin-top: 50px;">
             <a href="/tipodoacoes/cadastrar" class="btn btn-success">Nova doação</a>
