@@ -21,6 +21,7 @@
                         <a class="dropdown-item" href="/colaboradores/lista" >Colaboradores</a>
                         <a class="dropdown-item" href="/tipodoacoes/lista" >Produtos p/ Doação</a>
                         <a class="dropdown-item" href="/doacoes/lista" >Doações</a>
+                        <a class="dropdown-item" href="/familias/lista" >Familias</a>
                         <a class="dropdown-item" href="/filhos/lista" >Filhos</a>
                     </div>
                 </li>

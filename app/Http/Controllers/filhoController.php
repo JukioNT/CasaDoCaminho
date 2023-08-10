@@ -42,7 +42,6 @@ class filhoController extends Controller
     public function store(Request $request)
     {
         $data = new Filho();
-        
         $data->nome = $request->input('nome');
         $data->nascimento = $request->input('nascimento');
         $data->familia_id = $request->input('familia_id');

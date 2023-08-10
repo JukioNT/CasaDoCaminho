@@ -78,6 +78,15 @@ Route::post('/filhos/{id}', [App\Http\Controllers\filhoController::class, 'updat
 Route::get('/filhos/cadastrar', [App\Http\Controllers\filhoController::class, 'create'])->name('novoFilho');
 Route::post('/filhos', [App\Http\Controllers\filhoController::class, 'store'])->name('gravaNovoFilho');
 
+//Rotas Familias
+Route::get('/familias/lista', [App\Http\Controllers\familiaController::class, 'index'])->name('listaFamilias');
+Route::get('/familias/editar/{id}', [App\Http\Controllers\familiaController::class, 'edit'])->name('editaFamilia');
+Route::get('/familias/info/{id}', [App\Http\Controllers\familiaController::class, 'indexInfo'])->name('infoFamilia');
+Route::get('/familias/deletar/{id}', [App\Http\Controllers\familiaController::class, 'destroy'])->name('deletaFamilia');
+Route::post('/familias/{id}', [App\Http\Controllers\familiaController::class, 'update'])->name('gravaEditaFamilia');
+Route::get('/familias/cadastrar', [App\Http\Controllers\familiaController::class, 'create'])->name('novaFamilia');
+Route::post('/familias', [App\Http\Controllers\familiaController::class, 'store'])->name('gravaNovaFamilia');
+
 
 
 require __DIR__.'/auth.php';
