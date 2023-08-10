@@ -46,7 +46,7 @@ class filhoController extends Controller
         $data->nascimento = $request->input('nascimento');
         $data->familia_id = $request->input('familia_id');
         $data->save();
-        return redirect('/filhos/lista')->with('success', 'FIlho cadastrado com sucesso');
+        return redirect('/filhos/lista')->with('success', 'Filho cadastrado com sucesso');
     }
 
     /**

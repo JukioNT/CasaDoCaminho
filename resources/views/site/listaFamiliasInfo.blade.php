@@ -32,7 +32,7 @@
                         <tr>
                             <td>{{ $value['NomeResponsavel'] }}</td>
                             <td>{{ $value['estado_civil'] }}</td>
-                            <td>{{ $value['nomeCompanhiero'] }}</td>
+                            <td>{{ $value['nomeCompanheiro'] }}</td>
                             <td>{{ date('d/m/Y H:i:s', strtotime($value['nascimento'])) }}</td>
                             <td>{{ $value['endereço'] }}</td>
                             <td>{{ $value['telefone'] }}</td>

@@ -16,11 +16,11 @@ return new class extends Migration
             $table->string('NomeResponsavel');
             $table->unsignedBigInteger('estadoCivil_id');
             $table->foreign('estadoCivil_id')->references('id')->on('estado_civils');
-            $table->string('nomeCompanhiero')->nullable();
+            $table->string('nomeCompanheiro')->nullable();
             $table->date('nascimento');
-            $table->string('endereço');
+            $table->string('endereco');
             $table->string('telefone');
-            $table->string('profissão');
+            $table->string('profissao');
             $table->unsignedBigInteger('escolaridade_id');
             $table->foreign('escolaridade_id')->references('id')->on('escolaridades');
             $table->integer('Nfilhos');
