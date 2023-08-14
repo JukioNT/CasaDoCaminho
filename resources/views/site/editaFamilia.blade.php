@@ -1,9 +1,6 @@
 @extends('site.layout')
 @section('title', 'Editar Família')
 @section('body')
-<pre>
-    {{ $data }}
-</pre>
     <div class="card-body container">
         <h1 class="py-4">Editar Família</h1>
         <form action="/familias/{{$data->id}}" method="POST">
@@ -46,6 +43,12 @@
     </div>
 @endsection
 @section('script')
+<script type="module">
+    $().ready(function() {
+    let numberMask = new Inputmask('+99(99)99999-9999')
+    numberMask.mask('#telefone')
+    });
+</script>
 <script>
     document.addEventListener('DOMContentLoaded', hide);
     function hide(){

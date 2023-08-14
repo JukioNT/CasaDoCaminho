@@ -12,6 +12,7 @@
         "autoprefixer": "^10.4.2",
         "axios": "^1.1.2",
         "bootstrap": "^5.2.3",
+        "inputmask": "^5.0.8",
         "jquery": "^3.7.0",
         "laravel-vite-plugin": "^0.7.5",
         "postcss": "^8.4.6",

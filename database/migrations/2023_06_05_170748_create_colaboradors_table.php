@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('Nome');
             $table->string('Endereco');
             $table->string('Telefone');
-            $table->string('Nascimento');
+            $table->date('Nascimento');
             $table->string('Email');
             $table->string('Disponibilidade');
             $table->string('Religiao');

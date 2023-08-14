@@ -44,7 +44,14 @@
         </form>
     </div>
 @endsection
+
 @section('script')
+<script type="module">
+    $().ready(function() {
+    let numberMask = new Inputmask('+99(99)99999-9999')
+    numberMask.mask('#telefone')
+    });
+</script>
 <script>
     function hide(){
         var select = document.getElementById('estadoCivil_id')

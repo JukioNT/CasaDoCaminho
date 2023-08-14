@@ -12,12 +12,11 @@
             <table class="table table-ordered table-hover" id="tabelaEventos">
                 <thead>
                     <tr>
-                        <td>Código</td>
                         <td>Nome</td>
                         <td>Endereço</td>
                         <td>Telefone</td>
-                        <td>Nascimento</td>
                         <td>Email</td>
+                        <td>Nascimento</td>
                         <td>Disponibilidade</td>
                         <td>Religião</td>
                         <td>Afinidade</td>
@@ -27,12 +26,11 @@
                 <tbody>
                     @foreach ($colaborador as $item => $value)
                         <tr>
-                            <td>{{ $value['id'] }}</td>
                             <td>{{ $value['Nome'] }}</td>
                             <td>{{ $value['Endereco'] }}</td>
                             <td>{{ $value['Telefone'] }}</td>
-                            <td>{{ $value['Nascimento'] }}</td>
                             <td>{{ $value['Email'] }}</td>
+                            <td>{{ date('d/m/Y', strtotime($value['Nascimento'])) }}</td>
                             <td>{{ $value['Disponibilidade'] }}</td>
                             <td>{{ $value['Religiao'] }}</td>
                             <td>{{ $value['Afinidade'] }}</td>
