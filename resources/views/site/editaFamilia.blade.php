@@ -1,43 +1,44 @@
 @extends('site.layout')
-@section('title', 'Cadastrar Família')
+@section('title', 'Editar Família')
 @section('body')
+<pre>
+    {{ $data }}
+</pre>
     <div class="card-body container">
-        <h1 class="py-4">Adicionar nova Família</h1>
-        <form action="/familias" method="POST">
+        <h1 class="py-4">Editar Família</h1>
+        <form action="/familias/{{$data->id}}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="NomeResponsavel">Nome Responsável:</label>
-                <input class="form-control" type="text" name="NomeResponsavel" id="NomeResponsavel">
+                <input value="{{$data->NomeResponsavel}}" class="form-control" type="text" name="NomeResponsavel" id="NomeResponsavel">
                 <label for="estadoCivil_id">Estado Civil:</label>
                 <select class="form-select" aria-label="Default select example" id="estadoCivil_id" name="estadoCivil_id" onchange="hide()">
                     @foreach ($estadoCivil as $item)
-                    <option value="{{$item->id}}">{{$item->estado_civil}}</option>
+                    <option {{ $data->estadoCivil_id == $item->id ? 'selected' : '' }} value="{{$item->id}}">{{$item->estado_civil}}</option>
                     @endforeach
                 </select>
                 <label for="nomeCompanheiro" style="display:none">Nome Companheiro:</label>
-                <input class="form-control" type="hidden" name="nomeCompanheiro" id="nomeCompanheiro">
+                <input value="{{$data->nomeCompanheiro}}" class="form-control" type="hidden" name="nomeCompanheiro" id="nomeCompanheiro">
                 <label for="nascimento">Nascimento:</label>
-                <input class="form-control" type="date" name="nascimento" id="nascimento">
+                <input value="{{$data->nascimento}}" class="form-control" type="date" name="nascimento" id="nascimento">
                 <label for="endereco">Endereço:</label>
-                <input class="form-control" type="text" name="endereco" id="endereco">
+                <input value="{{$data->endereco}}" class="form-control" type="text" name="endereco" id="endereco">
                 <label for="telefone">Telefone:</label>
-                <input class="form-control" type="text" name="telefone" id="telefone">
+                <input value="{{$data->telefone}}" class="form-control" type="text" name="telefone" id="telefone">
                 <label for="profissao">Profissão:</label>
-                <input class="form-control" type="text" name="profissao" id="profissao">
+                <input value="{{$data->profissao}}" class="form-control" type="text" name="profissao" id="profissao">
                 <label for="escolaridade_id">Escolaridade:</label>
                 <select class="form-select" aria-label="Default select example" id="escolaridade_id" name="escolaridade_id">
                     @foreach ($escolaridade as $item)
-                    <option value="{{$item->id}}">{{$item->escolaridade}}</option>
+                    <option {{ $data->escolaridade_id == $item->id ? 'selected' : '' }} value="{{$item->id}}">{{$item->escolaridade}}</option>
                     @endforeach
                 </select>
                 <label for="Nfilhos">Número de Filhos:</label>
-                <input class="form-control" type="number" name="Nfilhos" id="Nfilhos">
-                <label for="renda">Renda Familiar:</label>
-                <input class="form-control" type="number" name="renda" id="renda">
+                <input value="{{$data->Nfilhos}}" class="form-control" type="number" name="Nfilhos" id="Nfilhos">
                 <label for="recebeajuda">Recebe Ajuda:</label>
                 <select class="form-select" aria-label="Default select example" id="recebeajuda" name="recebeajuda">
-                    <option value="S">Sim</option>
-                    <option value="N">Não</option>
+                    <option {{ $data->recebeajuda == 'S' ? 'selected' : '' }} value="S">Sim</option>
+                    <option {{ $data->recebeajuda == 'N' ? 'selected' : '' }} value="N">Não</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-success btn-sm">Salvar</button>
@@ -46,6 +47,7 @@
 @endsection
 @section('script')
 <script>
+    document.addEventListener('DOMContentLoaded', hide);
     function hide(){
         var select = document.getElementById('estadoCivil_id')
         console.log(select)

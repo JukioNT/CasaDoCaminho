@@ -24,7 +24,7 @@
                         <tr>
                             <td>{{ $value['NomeResponsavel'] }}</td>
                             <td>{{ $value['estado_civil'] }}</td>
-                            <td>{{ $value['nomeCompanhiero'] }}</td>
+                            <td>{{ $value['nomeCompanheiro'] }}</td>
                             <td>{{ date('d/m/Y', strtotime($value['nascimento'])) }}</td>
                             <td>
                                 <a href="/familias/editar/{{ $value['id'] }}" class="btn btn-primary">Editar</a>
