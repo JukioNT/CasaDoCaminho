@@ -1,8 +1,8 @@
 @extends('site.layout')
-@section('title', 'Cadastrar Noticia')
+@section('title', 'Editar Evento')
 @section('body')
     <div class="card-body container">
-        <h1 class="py-4">Editar evento</h1>
+        <h1 class="py-4">Editar Evento</h1>
         <form action="/eventos/{{$data->id}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">

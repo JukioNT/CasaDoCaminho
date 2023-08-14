@@ -2,7 +2,7 @@
 @section('title', 'Cadastrar Colaborador')
 @section('body')
     <div class="card-body container">
-        <h1 class="py-4">Editar novo Colaborador</h1>
+        <h1 class="py-4">Editar Colaborador</h1>
         <form action="/colaboradores/{{$data->id}}" method="POST">
             @csrf
             <div class="form-group">

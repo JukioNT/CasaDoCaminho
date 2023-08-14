@@ -1,8 +1,8 @@
 @extends('site.layout')
-@section('title', 'Editar Doações')
+@section('title', 'Editar Doação')
 @section('body')
     <div class="card-body container">
-        <h1 class="py-4">Editar noticia</h1>
+        <h1 class="py-4">Editar Doação</h1>
         <form action="" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">

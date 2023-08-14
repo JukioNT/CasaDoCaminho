@@ -1,5 +1,5 @@
 @extends('site.layout')
-@section('title', 'Cadastrar Noticia')
+@section('title', 'Editar Filho')
 @section('body')
     <div class="card-body container">
         <h1 class="py-4">Editar Filho</h1>

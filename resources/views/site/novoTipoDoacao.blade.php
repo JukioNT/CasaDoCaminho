@@ -2,7 +2,7 @@
 @section('title', 'Cadastrar Tipo Doação')
 @section('body')
     <div class="card-body container">
-        <h1 class="py-4">Adicionar novo Tipo Doação</h1>
+        <h1 class="py-4">Adicionar novo Produto para Doação</h1>
         <form action="{{route('gravaNovoTipoDoacao')}}" method="POST">
             @csrf
             <div class="form-group">

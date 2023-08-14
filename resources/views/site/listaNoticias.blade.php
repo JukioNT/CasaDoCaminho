@@ -2,7 +2,7 @@
 @section('title', 'Noticias')
 @section('body')
 <div class="container">
-    <h1 class="py-4">Lista de noticias</h1>
+    <h1 class="py-4">Lista de Noticias</h1>
     @if (count($noticia) == 0)
         <p style="text-align: center;">Não há noticias cadastradas</p>
         <a href="/noticias/cadastrar" class="btn btn-success">Nova noticia</a>

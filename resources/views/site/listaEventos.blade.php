@@ -2,7 +2,7 @@
 @section('title', 'Eventos')
 @section('body')
 <div class="container">
-    <h1 class="py-4">Lista de eventos</h1>
+    <h1 class="py-4">Lista de Eventos</h1>
     @if (count($evento) == 0)
         <p style="text-align: center;">Não há eventos cadastradas</p>
         <a href="/eventos/cadastrar" class="btn btn-success">Novo evento</a>

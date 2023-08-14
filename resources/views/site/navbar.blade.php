@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md">
     <div class="logo">
         <div class="logo-text">
-            <a href="/" style="text-decoration: none; color: inherit;"><h2 class="py-1">Casa Do Caminho</h2></a>
+            <a href="/"><h2 class="py-2">Casa Do Caminho</h2></a>
         </div>
     </div>
     <div class="navbar-items">
@@ -39,6 +39,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="http://example.com" aria-haspopup="true" aria-expanded="false">Contato</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn" href="http://example.com" aria-haspopup="true" aria-expanded="false">Entrar</a>
                 </li>
             </ul>
         </div>

@@ -1,12 +1,11 @@
 :root {
     --text: #000000;
+    --texthover: #cccccc;
     --background: #f3ece2;
     --primary: #ccccff;
-    --primaryHover: #ccccffbe;
-    --secondary: #f9f5f1;
-    --secondaryHover: #e6e2de;
-    --accent: #330e34;
-    --accentHover: #330e33;
+    --primaryopc: rgba(204, 204, 255, 0.5);
+    --secondary: #cbe0f6;
+    --accent: #7329a8;
 }
 
 body {
@@ -14,19 +13,61 @@ body {
 }
 
 .navbar {
+    color: var(--text);
+    background-color: var(--background);
+}
+
+.nav-link{
+    width: 90px;
+}
+
+.navbar-items a{
+    position: relative;
+    color: var(--text);
+    font-size: 15px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.navbar-items .btn:hover{
+    color: var(--texthover);
+    box-shadow: 0 10px 20px var(--primaryopc);
+}
+
+.nav-item .btn{
+    background-color: var(--primary); 
+}
+
+.nav-item .btn:hover{
     background-color: var(--primary);
+    color: var(--text);
+    transform: translateY(-5px);
 }
 
 .logo {
     display: flex;
-    width: 70%;
     align-items: flex-start;
 }
 
 .logo-text {
     display: flex;
+    width: 100%;
     flex-direction: column;
-    text-align: center;
+}
+
+@font-face {
+    font-family: 'Rouge Script';
+    src: url('./fonts/RougeScript-Regular.ttf') format('truetype');
+}
+
+.logo-text a{
+    font-family: 'Rouge Script';
+    text-decoration: none;
+    color: var(--accent);
+}
+
+.logo-text h2{
+    font-size: 50px;
 }
 
 .navbar-expand-md {
