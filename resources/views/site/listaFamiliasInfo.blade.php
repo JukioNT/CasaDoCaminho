@@ -34,9 +34,9 @@
                             <td>{{ $value['estado_civil'] }}</td>
                             <td>{{ $value['nomeCompanheiro'] }}</td>
                             <td>{{ date('d/m/Y H:i:s', strtotime($value['nascimento'])) }}</td>
-                            <td>{{ $value['endereço'] }}</td>
+                            <td>{{ $value['endereco'] }}</td>
                             <td>{{ $value['telefone'] }}</td>
-                            <td>{{ $value['profissão'] }}</td>
+                            <td>{{ $value['profissao'] }}</td>
                             <td>{{ $value['escolaridade'] }}</td>
                             <td>{{ $value['Nfilhos'] }}</td>
                             <td>{{ $value['nomes_filhos'] }}</td>
