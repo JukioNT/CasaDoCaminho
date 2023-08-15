@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('colaboradors', function (Blueprint $table) {
             $table->id();
+            $table->string('CPF');
             $table->string('Nome');
             $table->string('Endereco');
             $table->string('Telefone');

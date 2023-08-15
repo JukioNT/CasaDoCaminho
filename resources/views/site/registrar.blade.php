@@ -7,7 +7,7 @@
             @csrf
             <div class="form-group">
                 <label for="titulo">CPF:</label>
-                <input type="text" class="form-control" name="CPF" id="CPF"/>
+                <input type="text" class="form-control" name="CPF" id="CPF" placeholder="Disabled input" aria-label="Disabled input example" disabled value="{{$data['cpf']}}">
                 <label for="titulo">Nome:</label>
                 <input type="text" class="form-control" name="Nome" id="Nome"/>
                 <label for="descricao">Endereço:</label>

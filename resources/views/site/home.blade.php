@@ -53,11 +53,34 @@
             <div class="evento-container">
                 <img src="/storage/{{ $value->imagem }}" class="evento-img">
                 <p class="evento-title">{{ $value['titulo'] }}</p>
-                <a href="" class="colaborador-button">Seja um colaborador</a>
+                <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="colaborador-button" id="{{ $value->id }}" onclick="getId(this)">Seja um colaborador</button>
             </div>
-        @endforeach
+            @endforeach
         </div>
-        
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Ser um colaborador</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="/colaboradores/registrar">
+                    <div class="modal-body">
+                        @csrf
+                        <div class="form-group">
+                            <label for="cpf">Digite seu CPF:</label>
+                            <input id="cpf" name="cpf" type="text">
+                            <input type="hidden" id="idcpf" name="idcpf" value="">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                </form>
+              </div>
+            </div>
+          </div>
     @endif
 
     <div class="sobrenos" id="sobrenos">
@@ -67,4 +90,20 @@
     <div class="footer">
 
     </div>
+@endsection
+@section('script')
+<script type="module">
+    $().ready(function() {
+    let numberMask = new Inputmask('999.999.999-99')
+    numberMask.mask('#cpf')
+    });
+</script>
+<script>
+    function getId(button){
+        const id = button.id
+        const input = document.getElementById('idcpf')
+        console.log(input)
+        input.value = id
+    }
+</script>
 @endsection

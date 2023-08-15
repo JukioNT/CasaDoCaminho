@@ -6,6 +6,8 @@
         <form action="/colaboradores/{{$data->id}}" method="POST">
             @csrf
             <div class="form-group">
+                <label for="titulo">CPF:</label>
+                <input type="text" class="form-control" name="CPF" id="CPF" value="{{$data->CPF}}"/>
                 <label for="titulo">Nome:</label>
                 <input type="text" class="form-control" name="Nome" id="Nome" value="{{$data->Nome}}"/>
                 <label for="descricao">Endereço:</label>
@@ -32,6 +34,8 @@
     $().ready(function() {
         let numberMask = new Inputmask('+99(99)99999-9999')
         numberMask.mask('#Telefone')
+        let cpfMask = new Inputmask('999.999.999-99')
+        cpfMask.mask('#CPF')
     });
 </script>
 @endsection

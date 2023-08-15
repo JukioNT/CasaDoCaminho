@@ -34,6 +34,7 @@ class colaboradorController extends Controller
     public function store(Request $request)
     {
         $data = new Colaborador();
+        $data->CPF = $request->input('CPF');
         $data->Nome = $request->input('Nome');
         $data->Endereco = $request->input('Endereco');
         $data->Telefone = $request->input('Telefone');
@@ -73,6 +74,7 @@ class colaboradorController extends Controller
     {
         $data = Colaborador::find($id);
         if(isset($data)){
+            $data->CPF = $request->input('CPF');
             $data->Nome = $request->input('Nome');
             $data->Endereco = $request->input('Endereco');
             $data->Telefone = $request->input('Telefone');

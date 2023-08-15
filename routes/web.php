@@ -87,6 +87,9 @@ Route::post('/familias/{id}', [App\Http\Controllers\familiaController::class, 'u
 Route::get('/familias/cadastrar', [App\Http\Controllers\familiaController::class, 'create'])->name('novaFamilia');
 Route::post('/familias', [App\Http\Controllers\familiaController::class, 'store'])->name('gravaNovaFamilia');
 
+//Rotas Registrar
+Route::get('/colaboradores/registrar', [App\Http\Controllers\registrarController::class, 'form'])->name('registrarColaborador');
+
 
 
 require __DIR__.'/auth.php';

@@ -12,6 +12,7 @@
             <table class="table table-ordered table-hover" id="tabelaEventos">
                 <thead>
                     <tr>
+                        <td>CPF</td>
                         <td>Nome</td>
                         <td>Endereço</td>
                         <td>Telefone</td>
@@ -26,6 +27,7 @@
                 <tbody>
                     @foreach ($colaborador as $item => $value)
                         <tr>
+                            <td>{{ $value['CPF'] }}</td>
                             <td>{{ $value['Nome'] }}</td>
                             <td>{{ $value['Endereco'] }}</td>
                             <td>{{ $value['Telefone'] }}</td>

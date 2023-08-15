@@ -6,6 +6,7 @@
     --primaryopc: rgba(204, 204, 255, 0.5);
     --secondary: #cbe0f6;
     --accent: #7329a8;
+    --accenthover: #5d2286;
 }
 
 body {
@@ -23,7 +24,7 @@ body {
 
 .navbar-items a{
     position: relative;
-    color: var(--text);
+    color: var(--back);
     font-size: 15px;
     text-align: center;
     transition: transform 0.2s;
@@ -176,17 +177,21 @@ body {
     color: var(--accent);
     text-align: center;
     text-decoration: none;
+    background: var(--background);
     width: 150px;
     height: 50px;
     flex-shrink: 0;
     border-radius: 12px;
     border: 1px solid var(--accent);
     line-height: 47px;
+    transition: transform 0.2s;
 }
 
 .colaborador-button:hover{
-    color: var(--accentHover);
-    background: var(--secondaryHover);
+    border: 1px solid var(--accenthover);
+    color: var(--accenthover);
+    background: var(--background);
+    transform: translateY(-5px);
 }
 
 .container h1 {
