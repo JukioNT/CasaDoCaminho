@@ -40,7 +40,7 @@ body {
 
 .nav-item .btn:hover{
     background-color: var(--primary);
-    color: var(--text);
+    color: var(--background);
     transform: translateY(-5px);
 }
 
@@ -115,7 +115,39 @@ body {
     background-color: var(--accent) !important;
 }
 
+.carousel-caption h5{
+    color: var(--accent);
+}
+
+.carousel-caption p{
+    color: var(--accent);
+}
+
+.sobrenos{
+    height: 200px;
+    margin-top: 10%;
+    padding-left: 7%;
+    width: 100%;
+}
+
+.sobrenos h1{
+    width: 40%;
+    letter-spacing: -1px;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    background: -webkit-linear-gradient(120deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sobrenos p{
+    width: 70%;
+    font-size: 15px;
+}
+
 .eventos{
+    margin-top: 3%;
     display: flex;
 }
 
@@ -140,16 +172,15 @@ body {
 }
 
 .colaborador-button{
-    font-size: medium;
+    font-size: small;
     color: var(--accent);
     text-align: center;
     text-decoration: none;
-    width: 200px;
+    width: 150px;
     height: 50px;
     flex-shrink: 0;
     border-radius: 12px;
     border: 1px solid var(--accent);
-    background: var(--secondary);
     line-height: 47px;
 }
 
@@ -160,6 +191,10 @@ body {
 
 .container h1 {
     text-align: center;
+}
+
+.footer{
+    height: 50px;
 }
 
 thead {

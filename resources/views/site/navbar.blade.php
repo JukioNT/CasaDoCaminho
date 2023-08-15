@@ -26,9 +26,6 @@
                     </div>
                 </li>
                 @endif
-                <li class="nav-item">
-                    <a class="nav-link" href="/sobrenos" aria-expanded="false">Sobre nós</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Doações</a>
@@ -41,7 +38,7 @@
                     <a class="nav-link" href="http://example.com" aria-haspopup="true" aria-expanded="false">Contato</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn" href="http://example.com" aria-haspopup="true" aria-expanded="false">Entrar</a>
+                    <a class="nav-link btn" href="#sobrenos" aria-haspopup="true" aria-expanded="false">Sobre Nós</a>
                 </li>
             </ul>
         </div>
