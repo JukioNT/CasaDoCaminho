@@ -88,7 +88,9 @@ Route::get('/familias/cadastrar', [App\Http\Controllers\familiaController::class
 Route::post('/familias', [App\Http\Controllers\familiaController::class, 'store'])->name('gravaNovaFamilia');
 
 //Rotas Registrar
-Route::get('/colaboradores/registrar', [App\Http\Controllers\registrarController::class, 'form'])->name('registrarColaborador');
+Route::get('/registrar', [App\Http\Controllers\registrarController::class, 'form'])->name('registrarColaborador');
+Route::post('/registrar/salvar', [App\Http\Controllers\registrarController::class, 'store'])->name('registraNovoColaborador');
+
 
 
 

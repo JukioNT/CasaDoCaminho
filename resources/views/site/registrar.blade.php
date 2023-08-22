@@ -1,13 +1,14 @@
 @extends('site.layout')
 @section('title', 'Cadastrar Colaborador')
 @section('body')
+    
     <div class="card-body container">
         <h1 class="py-4">Adicionar novo Colaborador</h1>
-        <form action="{{route('gravaNovoColaborador')}}" method="POST">
+        <form action="/registrar/salvar" method="POST">
             @csrf
             <div class="form-group">
                 <label for="titulo">CPF:</label>
-                <input type="text" class="form-control" name="CPF" id="CPF" placeholder="Disabled input" aria-label="Disabled input example" disabled value="{{$data['cpf']}}">
+                <input type="text" class="form-control" name="" placeholder="Disabled input" aria-label="Disabled input example" disabled value="{{$data['cpf']}}">
                 <label for="titulo">Nome:</label>
                 <input type="text" class="form-control" name="Nome" id="Nome"/>
                 <label for="descricao">Endereço:</label>
@@ -24,6 +25,7 @@
                 <input type="text" class="form-control" name="Religiao" id="Religiao"/>
                 <label for="titulo">Afinidade:</label>
                 <input type="text" class="form-control" name="Afinidade" id="Afinidade"/>
+                <input type="hidden"name="CPF" id="CPF" value="{{$data['cpf']}}">
             </div>
             <button type="submit" class="btn btn-success btn-sm">Salvar</button>
         </form>

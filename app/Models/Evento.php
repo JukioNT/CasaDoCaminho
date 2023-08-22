@@ -14,4 +14,7 @@ class Evento extends Model
         'imagem',
         'dataEvento',
     ];
+    public function colaboradorEvento(){
+        return $this->hasMany('App/Models/ColaboradorEvento', 'evento_id');
+    }
 }

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Colaborador extends Model
+class ColaboradorEvento extends Model
 {
     use HasFactory;
     protected $guarded = [
@@ -13,7 +13,13 @@ class Colaborador extends Model
         'created_at',
         'updated_at',
     ];
-    public function colaboradorEvento(){
-        return $this->hasMany('App/Models/ColaboradorEvento', 'colaborador_id');
+
+    public function colaborador(){
+        return $this->belongsTo('App/Models/Colaborador');
+    }
+
+    public function evento(){
+        return $this->belongsTo('App/Models/Evento');
     }
 }
+
