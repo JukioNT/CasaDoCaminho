@@ -227,3 +227,24 @@ table {
         font-size: 3.5rem;
     }
 }
+
+.logout{
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    align-items: center;
+    background-color: var(--primary);
+    width: 500px;
+    height: 300px;
+    border-radius: 5%;
+    display: flex;
+    justify-content: center;
+}

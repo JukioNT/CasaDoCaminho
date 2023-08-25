@@ -19,7 +19,7 @@ Route::get('/', [App\Http\Controllers\homeController::class, 'index'])->name('ho
 Route::get('/register', [App\Http\Controllers\homeController::class, 'index']);
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('site.logout');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/sobrenos', function () {

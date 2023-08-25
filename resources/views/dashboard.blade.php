@@ -4,6 +4,15 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+
+        <x-responsive-nav-link :href="route('logout')"
+                onclick="event.preventDefault();
+                            this.closest('form').submit();">
+            {{ __('Log Out') }}
+        </x-responsive-nav-link>
+    </form>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
