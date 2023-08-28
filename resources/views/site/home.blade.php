@@ -69,7 +69,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="cpf">Digite seu CPF:</label>
-                            <input id="cpf" name="cpf" type="text">
+                            <input id="cpf" name="cpf" type="text" onblur="TestaCPF(value)">
                             <input type="hidden" id="idcpf" name="idcpf" value="">
                         </div>
                     </div>
@@ -105,5 +105,46 @@
         console.log(input)
         input.value = id
     }
+
+    function removerFormatacaoCPF(cpfFormatado) {
+        const cpfSemFormatacao = cpfFormatado.replace(/\./g, '').replace(/-/g, '');
+        return cpfSemFormatacao;
+    }
+
+    $().ready(function () {
+        function TestaCPF(strCPF){
+            console.log(strCPF)
+            strCPF = removerFormatacaoCPF(strCPF)
+            console.log(strCPF)
+            var Soma;
+            var Resto;
+            Soma = 0;
+            if (strCPF == "00000000000") return false;
+
+            for (i=1; i<=9; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
+            Resto = (Soma * 10) % 11;
+
+                if ((Resto == 10) || (Resto == 11))  Resto = 0;
+                if (Resto != parseInt(strCPF.substring(9, 10)) ) return false;
+
+            Soma = 0;
+                for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (12 - i);
+                Resto = (Soma * 10) % 11;
+
+                if ((Resto == 10) || (Resto == 11))  Resto = 0;
+                if (Resto != parseInt(strCPF.substring(10, 11) ) ) return false;
+                return true;
+        }
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function (event) {
+            const cpfInput = document.getElementById('cpf');
+            if (!TestaCPF(cpfInput.value)) {
+                event.preventDefault();
+                alert('CPF inválido. Por favor, insira um CPF válido.');
+            }
+        });
+    });
+
+
 </script>
 @endsection

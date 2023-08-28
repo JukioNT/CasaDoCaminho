@@ -1,6 +1,10 @@
 @extends('site.layout')
 @section('title', 'Editar Doação')
 @section('body')
+
+<div class="login-title">
+    <h1>Área administrativa</h1>
+</div>
 <div class="login-div">
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -11,13 +15,13 @@
         <!-- Email Address -->
         <div class="mb-3">  
             <label for="email" class="form-label">Email:</label>
-            <input id="email" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" class="form-control"/>
+            <input id="email" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" class="form-control login-input"/>
         </div>
 
         <!-- Password -->
         <div class="mb-3">
             <label for="email" class="form-label">Password:</label>
-            <input id="password" class="form-control" type="password" name="password" required autocomplete="current-password" />
+            <input id="password" class="form-control login-input" type="password" name="password" required autocomplete="current-password" />
         </div>
 
         <!-- Button -->

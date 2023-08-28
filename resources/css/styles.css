@@ -242,9 +242,20 @@ table {
     transform: translateY(-50%) translateX(-50%);
     align-items: center;
     background-color: var(--primary);
-    width: 500px;
+    width: 400px;
     height: 300px;
     border-radius: 5%;
     display: flex;
-    justify-content: center;
+}
+
+.login-div form{
+    margin-left: 40px;
+    margin-right: 40px;
+    width: 100%;
+}
+
+.login-title{
+    margin-top: 50px;
+    text-align: center;
+    width: 100%;
 }
