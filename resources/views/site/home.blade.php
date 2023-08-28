@@ -69,13 +69,15 @@
                         @csrf
                         <div class="form-group">
                             <label for="cpf">Digite seu CPF:</label>
-                            <input id="cpf" name="cpf" type="text" onblur="TestaCPF(value)">
+                            <input id="cpf" name="cpf" type="text" class="form-control" data-toggle="tooltip" data-placement="bottom" title="CPF inválido" onblur="verificaCPF(this)">
+                            <div class="invalid-feedback">
+                                CPF inválido.
+                            </div>
                             <input type="hidden" id="idcpf" name="idcpf" value="">
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Enviar</button>
+                        <button type="submit" class="btn btn-primary" id="enviarButton">Enviar</button>
                     </div>
                 </form>
               </div>
@@ -111,40 +113,42 @@
         return cpfSemFormatacao;
     }
 
-    $().ready(function () {
-        function TestaCPF(strCPF){
-            console.log(strCPF)
-            strCPF = removerFormatacaoCPF(strCPF)
-            console.log(strCPF)
-            var Soma;
-            var Resto;
-            Soma = 0;
-            if (strCPF == "00000000000") return false;
+    function verificaCPF(input) {
+        const invalidFeedback = input.nextElementSibling;
+        const enviarButton = document.getElementById('enviarButton');
 
-            for (i=1; i<=9; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
-            Resto = (Soma * 10) % 11;
-
-                if ((Resto == 10) || (Resto == 11))  Resto = 0;
-                if (Resto != parseInt(strCPF.substring(9, 10)) ) return false;
-
-            Soma = 0;
-                for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (12 - i);
-                Resto = (Soma * 10) % 11;
-
-                if ((Resto == 10) || (Resto == 11))  Resto = 0;
-                if (Resto != parseInt(strCPF.substring(10, 11) ) ) return false;
-                return true;
+        if (TestaCPF(input.value)) {
+            input.classList.remove('is-invalid');
+            invalidFeedback.style.display = 'none';
+            enviarButton.removeAttribute('disabled');
+        } else {
+            input.classList.add('is-invalid');
+            invalidFeedback.style.display = 'block';
+            enviarButton.setAttribute('disabled', 'disabled');
         }
-        const form = document.querySelector('form');
-        form.addEventListener('submit', function (event) {
-            const cpfInput = document.getElementById('cpf');
-            if (!TestaCPF(cpfInput.value)) {
-                event.preventDefault();
-                alert('CPF inválido. Por favor, insira um CPF válido.');
-            }
-        });
-    });
+    }
 
+    function TestaCPF(strCPF) {
+        strCPF = removerFormatacaoCPF(strCPF);
+        var Soma;
+        var Resto;
+        Soma = 0;
+        if (strCPF == "00000000000") return false;
+
+        for (var i = 1; i <= 9; i++) Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (11 - i);
+        Resto = (Soma * 10) % 11;
+
+        if ((Resto == 10) || (Resto == 11)) Resto = 0;
+        if (Resto != parseInt(strCPF.substring(9, 10))) return false;
+
+        Soma = 0;
+        for (var i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (12 - i);
+        Resto = (Soma * 10) % 11;
+
+        if ((Resto == 10) || (Resto == 11)) Resto = 0;
+        if (Resto != parseInt(strCPF.substring(10, 11))) return false;
+        return true;
+    }
 
 </script>
 @endsection
