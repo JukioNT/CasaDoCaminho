@@ -104,7 +104,6 @@
     function getId(button){
         const id = button.id
         const input = document.getElementById('idcpf')
-        console.log(input)
         input.value = id
     }
 
