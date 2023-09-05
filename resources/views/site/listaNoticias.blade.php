@@ -12,7 +12,6 @@
             <table class="table table-ordered table-hover" id="tabelaNoticias">
                 <thead>
                     <tr>
-                        <td>Código</td>
                         <td>Título</td>
                         <td>Descrição</td>
                         <td>Caminho da Imagem</td>
@@ -22,7 +21,6 @@
                 <tbody>
                     @foreach ($noticia as $item => $value)
                         <tr>
-                            <td>{{ $value['id'] }}</td>
                             <td>{{ $value['titulo'] }}</td>
                             <td>{{ $value['descricao'] }}</td>
                             <td>{{ $value['imagem'] }}</td>
