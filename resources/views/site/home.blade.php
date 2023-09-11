@@ -82,7 +82,7 @@
                 </form>
               </div>
             </div>
-          </div>
+        </div>
     @endif
 
     <div class="sobrenos" id="sobrenos">

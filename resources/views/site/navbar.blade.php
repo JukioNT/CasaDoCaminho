@@ -1,15 +1,15 @@
 <nav class="navbar navbar-expand-md">
-    <div class="logo">
-        <div class="logo-text">
-            <a href="/"><h2 class="py-2">Casa Do Caminho</h2></a>
+    <div class="container-fluid">
+        <div class="logo">
+            <div class="logo-text">
+                <a class="navbar-brand" href="/"><h2 class="py-2">Casa Do Caminho</h2></a>
+            </div>
         </div>
-    </div>
-    <div class="navbar-items">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <div class="collapse navbar-collapse navbar-items" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 @if(Auth::check())
                 <li class="nav-item dropdown">
@@ -35,7 +35,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://example.com" aria-haspopup="true" aria-expanded="false">Contato</a>
+                    <a class="nav-link" href="#" aria-haspopup="true" aria-expanded="false">Contato</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link btn" href="#sobrenos" aria-haspopup="true" aria-expanded="false">Sobre Nós</a>
@@ -43,5 +43,4 @@
             </ul>
         </div>
     </div>
-</nav>
 </nav>

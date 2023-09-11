@@ -5,37 +5,28 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Colaborador;
 use App\Models\ColaboradorEvento;
+use Exception;
 
 
 class registrarController extends Controller
 {
-
     public function form(Request $request){
-        $CPFVerify = Colaborador::where('CPF', '=', $request->input('cpf'));
-        if(isset($CPFVerify)){
+        $usuario = Colaborador::where('CPF', '=', $request->input('cpf'))->get();
 
-            $usuario = Colaborador::where('CPF', '=', $request->input('cpf'))->get(); 
+        try{
+            $test = $usuario[0]->id;
 
-            $colaboradorEventoVerify = ColaboradorEvento::select('id')
-            ->where('evento_id', $request->input('idcpf'))
-            ->where('colaborador_id', $usuario[0]->id)
-            ->get();
-
-            try{
-                if($colaboradorEventoVerify[0]->id != null){
-                    return redirect('/')->with('danger', 'Você já pariticipa desse evento');
-                }
-            }catch(Exception $e){
-                $data = array();
-                $data['cpf'] = $request->input('cpf');
-                $data['id'] = $request->input('idcpf');
-                return view('site.participar', compact('data'));
-            }
+            $data = array();
+            $data['cpf'] = $request->input('cpf');
+            $data['id'] = $request->input('idcpf');
+            return view('site.participarEvento', compact('data'));
+            
+        }catch(Exception $e){
+            $data = array();
+            $data['cpf'] = $request->input('cpf');
+            $data['id'] = $request->input('idcpf');
+            return view('site.registrar', compact('data'));
         }
-        $data = array();
-        $data['cpf'] = $request->input('cpf');
-        $data['id'] = $request->input('idcpf');
-        return view('site.registrar', compact('data'));
     }
 
     public function store(Request $request)
@@ -56,15 +47,33 @@ class registrarController extends Controller
         $evento->colaborador_id = $data->id;
         $evento->evento_id = $request->input('id');
         $evento->save();
-
+        
         return redirect('/')->with('success', 'Colaborador cadastrado com sucesso');
     }
-
-    public function participar()
+    
+    public function participar(Request $request)
     {
-        $data = new ColaboradorEvento();
-        $data->colaborador_id = ColaboradorEvento::where('CPF', '=', $request->input('cpf'));
-        $data->evento_id = $request->input('id');
-        echo $data['colaborador_id'];
+        $filhos = Colaborador::select('CPF', 'Email')
+        ->from('colaboradors')
+        ->where('CPF', '=', $request->input('CPF'))
+        ->get();
+        
+        if($filhos[0]->Email == $request->input("Email")){
+            try{
+                $data = new ColaboradorEvento();
+                $id = Colaborador::select('id')
+                     ->from('colaboradors')
+                     ->where('CPF', '=', $request->input('CPF'))
+                     ->get();
+                $data->colaborador_id = $id[0]->id;
+                $data->evento_id = $request->input('id');
+                $data->save();
+                return redirect('/')->with('success', 'Você está participando desse evento');
+            }catch(Exception $e){
+                return redirect('/')->with('danger', 'Você já participa desse evento');
+            }
+        }else{
+            return redirect('/')->with('danger', 'Email inválido');
+        }
     }
 }

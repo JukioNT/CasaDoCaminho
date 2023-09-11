@@ -4,7 +4,7 @@
     
     <div class="card-body container">
         <h1 class="py-4">Participar evento</h1>
-        <form action="/registrar/salvar" method="POST">
+        <form action="/registrar/participar" method="POST">
             @csrf
             <div class="form-group">
                 <label for="titulo">CPF:</label>

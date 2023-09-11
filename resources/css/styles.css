@@ -64,7 +64,7 @@ body {
 .logo-text a{
     font-family: 'Rouge Script';
     text-decoration: none;
-    color: var(--accent);
+    color: var(--accent);   
 }
 
 .logo-text h2{
