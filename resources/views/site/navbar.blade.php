@@ -26,19 +26,22 @@
                     </div>
                 </li>
                 @endif
+                <li class="nav-item">
+                    <a class="nav-link btn" href="/" aria-haspopup="true" aria-expanded="false">Home</a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Doações</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="#">Formas de ajudar</a>
-                        <a class="dropdown-item" href="#">O que precisa?</a>
+                        <a class="dropdown-item" href="/ajudar">Formas de ajudar</a>
+                        <a class="dropdown-item" href="/precisamos">O que precisa?</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" aria-haspopup="true" aria-expanded="false">Contato</a>
+                    <a class="nav-link" href="/contato" aria-haspopup="true" aria-expanded="false">Contato</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn" href="#sobrenos" aria-haspopup="true" aria-expanded="false">Sobre Nós</a>
+                    <a class="nav-link" href="/sobrenos" aria-haspopup="true" aria-expanded="false">Sobre Nós</a>
                 </li>
             </ul>
         </div>

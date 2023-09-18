@@ -26,6 +26,18 @@ Route::get('/sobrenos', function () {
 	return view('site.sobreNos');
 });
 
+Route::get('/ajudar', function () {
+	return view('site.ajudar');
+});
+
+Route::get('/precisamos', function () {
+	return view('site.precisa');
+});
+
+Route::get('/contato', function () {
+	return view('site.contato');
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

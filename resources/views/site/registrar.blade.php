@@ -25,6 +25,8 @@
                 <input type="text" class="form-control" name="Religiao" id="Religiao" required/>
                 <label for="titulo">Afinidade:</label>
                 <input type="text" class="form-control" name="Afinidade" id="Afinidade" required/>
+                <label for="titulo">Senha:</label>
+                <input type="text" class="form-control" name="Senha" id="Senha" minlength="8" required/>
                 <input type="hidden"name="CPF" id="CPF" value="{{$data['cpf']}}">
                 <input type="hidden"name="id" id="id" value="{{$data['id']}}">
             </div>

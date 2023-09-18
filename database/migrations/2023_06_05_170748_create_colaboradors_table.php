@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('Disponibilidade');
             $table->string('Religiao');
             $table->string('Afinidade');
+            $table->string('Senha');
             $table->timestamps();
         });
     }

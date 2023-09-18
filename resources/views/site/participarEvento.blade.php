@@ -11,6 +11,8 @@
                 <input type="text" class="form-control" name="" placeholder="Disabled input" aria-label="Disabled input example" disabled value="{{$data['cpf']}}" required>
                 <label for="titulo">E-mail:</label>
                 <input type="email" class="form-control" name="Email" id="Email" required/>
+                <label for="titulo">Senha:</label>
+                <input type="password" class="form-control" name="Senha" id="Senha" required/>
                 <input type="hidden"name="CPF" id="CPF" value="{{$data['cpf']}}">
                 <input type="hidden"name="id" id="id" value="{{$data['id']}}">
             </div>

@@ -128,14 +128,13 @@ body {
     color: var(--accent);
 }
 
-.sobrenos{
+.info{
+    margin-top: 100px;
     height: 200px;
-    margin-top: 10%;
     padding-left: 7%;
-    width: 100%;
 }
 
-.sobrenos h1{
+.info h1{
     width: 40%;
     letter-spacing: -1px;
     font-size: 40px;
@@ -146,7 +145,7 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-.sobrenos p{
+.info p{
     width: 70%;
     font-size: 15px;
 }

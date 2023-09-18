@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Colaborador;
 use App\Models\ColaboradorEvento;
 use Exception;
-
+use Illuminate\Support\Facades\Hash;
 
 class registrarController extends Controller
 {
@@ -41,6 +41,7 @@ class registrarController extends Controller
         $data->Disponibilidade = $request->input('Disponibilidade');
         $data->Religiao = $request->input('Religiao');
         $data->Afinidade = $request->input('Afinidade');
+        $data->Senha = Hash::make($request->input('Senha'));
         $data->save();
 
         $evento = new ColaboradorEvento();
@@ -53,12 +54,12 @@ class registrarController extends Controller
     
     public function participar(Request $request)
     {
-        $filhos = Colaborador::select('CPF', 'Email')
+        $colaborador = Colaborador::select('CPF', 'Email', 'Senha')
         ->from('colaboradors')
         ->where('CPF', '=', $request->input('CPF'))
         ->get();
         
-        if($filhos[0]->Email == $request->input("Email")){
+        if($colaborador[0]->Email == $request->input("Email") && Hash::check($request->input('Senha'), $colaborador[0]->Senha)){
             try{
                 $data = new ColaboradorEvento();
                 $id = Colaborador::select('id')
