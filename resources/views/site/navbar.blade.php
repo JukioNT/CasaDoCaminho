@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md">
-    <div class="container-fluid">
+    <div class="container">
         <div class="logo">
             <div class="logo-text">
                 <a class="navbar-brand" href="/"><h2 class="py-2">Casa Do Caminho</h2></a>

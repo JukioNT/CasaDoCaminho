@@ -22,6 +22,10 @@ body {
     width: 90px;
 }
 
+.navbar-items{
+    justify-content: flex-end;
+}
+
 .navbar-items a{
     position: relative;
     color: var(--back);
