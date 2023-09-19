@@ -18,18 +18,26 @@ class registrarController extends Controller
 
             $data = array();
             $data['cpf'] = $request->input('cpf');
-            $data['id'] = $request->input('idcpf');
-            return view('site.participarEvento', compact('data'));
+            $data['id'] = $request->input('idprojeto');
+
+            $eventoVerify = ColaboradorEvento::where('colaborador_id', '=', $usuario[0]->id)->where('evento_id', '=', $data['id'])->get();
+
+            try{
+                $test = $eventoVerify[0]->id;
+                return redirect('/')->with('danger', 'Você já participa desse evento');
+            }catch(Exception $e){
+                return view('site.participarEvento', compact('data'));
+            }
             
         }catch(Exception $e){
             $data = array();
             $data['cpf'] = $request->input('cpf');
-            $data['id'] = $request->input('idcpf');
+            $data['id'] = $request->input('idprojeto');
             return view('site.registrar', compact('data'));
         }
     }
 
-    public function store(Request $request)
+    public function registrarParticipar(Request $request)
     {
         $data = new Colaborador();
         $data->CPF = $request->input('CPF');

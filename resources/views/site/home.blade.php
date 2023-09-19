@@ -73,7 +73,7 @@
                             <div class="invalid-feedback">
                                 CPF inválido.
                             </div>
-                            <input type="hidden" id="idcpf" name="idcpf" value="">
+                            <input type="hidden" id="idprojeto" name="idprojeto" value="">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -95,7 +95,7 @@
 <script>
     function getId(button){
         const id = button.id
-        const input = document.getElementById('idcpf')
+        const input = document.getElementById('idprojeto')
         input.value = id
     }
 

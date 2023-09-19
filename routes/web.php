@@ -101,7 +101,7 @@ Route::post('/familias', [App\Http\Controllers\familiaController::class, 'store'
 
 //Rotas Registrar
 Route::get('/registrar', [App\Http\Controllers\registrarController::class, 'form'])->name('registrarColaborador');
-Route::post('/registrar/salvar', [App\Http\Controllers\registrarController::class, 'store'])->name('registraNovoColaborador');
+Route::post('/registrar/salvar', [App\Http\Controllers\registrarController::class, 'registrarParticipar'])->name('registraNovoColaborador');
 Route::post('/registrar/participar', [App\Http\Controllers\registrarController::class, 'participar'])->name('pariticparEvento');
 
 

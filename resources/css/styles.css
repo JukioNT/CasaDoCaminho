@@ -1,7 +1,8 @@
 :root {
     --text: #000000;
     --texthover: #cccccc;
-    --background: #f3ece2;
+    --navbar: #CCCCFF;
+    --background: #eeeeee;
     --primary: #ccccff;
     --primaryopc: rgba(204, 204, 255, 0.5);
     --secondary: #cbe0f6;
@@ -9,13 +10,20 @@
     --accenthover: #5d2286;
 }
 
+nav{
+    height: 70px;
+}
+
 body {
     background-color: var(--background);
 }
 
 .navbar {
+    padding-left: 20px;
+    padding-right: 20px;
     color: var(--text);
-    background-color: var(--background);
+    background-color: var(--navbar);
+    box-shadow: 0 1px 7px var(--primaryopc);
 }
 
 .nav-link{
@@ -50,14 +58,27 @@ body {
 }
 
 .logo {
+    position: relative;
     display: flex;
     align-items: flex-start;
 }
 
 .logo-text {
+    z-index: 0;
     display: flex;
     width: 100%;
     flex-direction: column;
+}
+
+.logo .image{
+    position: absolute;
+    height: 10px;
+    bottom: 90px;
+    left: -20px;
+}
+
+.logo .image img{
+    height: 100px;
 }
 
 @font-face {
@@ -68,11 +89,22 @@ body {
 .logo-text a{
     font-family: 'Rouge Script';
     text-decoration: none;
-    color: var(--accent);   
+    color: var(--accent);
 }
 
 .logo-text h2{
-    font-size: 50px;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 0;
+    padding-bottom: 0 !important;
+}
+
+.logo-text p{
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: 0px;
 }
 
 .navbar-expand-md {
@@ -262,3 +294,4 @@ table {
     text-align: center;
     width: 100%;
 }
+
