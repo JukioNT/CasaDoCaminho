@@ -7,11 +7,11 @@
             @csrf
             <div class="form-group">
                 <label for="nome">Nome:</label>
-                <input type="text" class="form-control" name="nome" id="nome" value="{{$data->nome}}">
+                <input type="text" class="form-control" name="nome" id="nome" value="{{$data->nome}}" required>
                 <label for="nascimento">Idade:</label>
-                <input type="date" class="form-control" name="nascimento" id="nascimento" value="{{$data->nascimento}}">
+                <input type="date" class="form-control" name="nascimento" id="nascimento" value="{{$data->nascimento}}" required>
                 <label for="familia_id">Familia Pertencente:</label>
-                <select class="form-select" aria-label="default select example" id="familia_id" name="familia_id">
+                <select class="form-select" aria-label="default select example" id="familia_id" name="familia_id" required>
                     @foreach ($familias as $item)
                         <option {{ $data->familia_id == $item->id ? 'selected' : '' }} value="{{$item->id}}">{{$item->NomeResponsavel}}</option>
                     @endforeach

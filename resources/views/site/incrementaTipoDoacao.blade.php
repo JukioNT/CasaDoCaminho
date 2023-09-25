@@ -7,7 +7,7 @@
             @csrf
             <div class="form-group">
                 <label for="titulo">Quantidade a incrementar:</label>
-                <input type="number" class="form-control" name="quantidade" id="quantidade"/>
+                <input type="number" class="form-control" name="quantidade" id="quantidade" required/>
             </div>
             <button type="submit" class="btn btn-success btn-sm">Salvar</button>
         </form>

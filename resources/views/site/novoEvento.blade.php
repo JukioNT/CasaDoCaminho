@@ -7,13 +7,13 @@
             @csrf
             <div class="form-group">
                 <label for="titulo">Titulo do Evento:</label>
-                <input for="text" class="form-control" name="titulo" id="titulo"/>
+                <input for="text" class="form-control" name="titulo" id="titulo" required/>
                 <label for="descricao">Descrição do Evento:</label>
-                <input for="text" class="form-control" name="descricao" id="descricao">
+                <input for="text" class="form-control" name="descricao" id="descricao" required>
                 <label for="imagem">Imagem do Evento:</label>
-                <input type="file" class="form-control" name="imagem" id="imagem">
+                <input type="file" class="form-control" name="imagem" id="imagem" required>
                 <label for="dataEvento">Data e hora do evento:</label>
-                <input type="datetime-local" class="form-control" name="dataEvento" id="dataEvento">
+                <input type="datetime-local" class="form-control" name="dataEvento" id="dataEvento" required>
                 
             </div>
             <button type="submit" class="btn btn-success btn-sm">Salvar</button>

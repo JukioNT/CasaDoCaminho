@@ -7,23 +7,23 @@
             @csrf
             <div class="form-group">
                 <label for="titulo">CPF:</label>
-                <input type="text" class="form-control" name="CPF" id="CPF"/>
+                <input type="text" class="form-control" name="CPF" id="CPF" required/>
                 <label for="titulo">Nome:</label>
-                <input type="text" class="form-control" name="Nome" id="Nome"/>
+                <input type="text" class="form-control" name="Nome" id="Nome" required/>
                 <label for="descricao">Endereço:</label>
-                <input type="text" class="form-control" name="Endereco" id="Endereco">
+                <input type="text" class="form-control" name="Endereco" id="Endereco" required>
                 <label for="imagem">Telefone:</label>
-                <input type="text" class="form-control" name="Telefone" id="Telefone">
+                <input type="text" class="form-control" name="Telefone" id="Telefone" required>
                 <label for="titulo">Nascimento:</label>
-                <input type="date" class="form-control" name="Nascimento" id="Nascimento"/>
+                <input type="date" class="form-control" name="Nascimento" id="Nascimento" required/>
                 <label for="titulo">E-mail:</label>
                 <input type="email" class="form-control" name="Email" id="Email"/>
                 <label for="titulo">Disponibilidade:</label>
-                <input type="text" class="form-control" name="Disponibilidade" id="Disponibilidade"/>
+                <input type="text" class="form-control" name="Disponibilidade" id="Disponibilidade" required/>
                 <label for="titulo">Religião:</label>
-                <input type="text" class="form-control" name="Religiao" id="Religiao"/>
+                <input type="text" class="form-control" name="Religiao" id="Religiao" required/>
                 <label for="titulo">Afinidade:</label>
-                <input type="text" class="form-control" name="Afinidade" id="Afinidade"/>
+                <input type="text" class="form-control" name="Afinidade" id="Afinidade" required/>
             </div>
             <button type="submit" class="btn btn-success btn-sm">Salvar</button>
         </form>

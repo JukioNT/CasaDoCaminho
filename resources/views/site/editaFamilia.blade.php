@@ -7,7 +7,7 @@
             @csrf
             <div class="form-group">
                 <label for="NomeResponsavel">Nome Responsável:</label>
-                <input value="{{$data->NomeResponsavel}}" class="form-control" type="text" name="NomeResponsavel" id="NomeResponsavel">
+                <input value="{{$data->NomeResponsavel}}" class="form-control" type="text" name="NomeResponsavel" id="NomeResponsavel" required>
                 <label for="estadoCivil_id">Estado Civil:</label>
                 <select class="form-select" aria-label="Default select example" id="estadoCivil_id" name="estadoCivil_id" onchange="hide()">
                     @foreach ($estadoCivil as $item)
@@ -15,17 +15,17 @@
                     @endforeach
                 </select>
                 <label for="nomeCompanheiro" style="display:none">Nome Companheiro:</label>
-                <input value="{{$data->nomeCompanheiro}}" class="form-control" type="hidden" name="nomeCompanheiro" id="nomeCompanheiro">
+                <input value="{{$data->nomeCompanheiro}}" class="form-control" type="hidden" name="nomeCompanheiro" id="nomeCompanheiro" required>
                 <label for="nascimento">Nascimento:</label>
-                <input value="{{$data->nascimento}}" class="form-control" type="date" name="nascimento" id="nascimento">
+                <input value="{{$data->nascimento}}" class="form-control" type="date" name="nascimento" id="nascimento" required>
                 <label for="endereco">Endereço:</label>
-                <input value="{{$data->endereco}}" class="form-control" type="text" name="endereco" id="endereco">
+                <input value="{{$data->endereco}}" class="form-control" type="text" name="endereco" id="endereco" required>
                 <label for="telefone">Telefone:</label>
-                <input value="{{$data->telefone}}" class="form-control" type="text" name="telefone" id="telefone">
+                <input value="{{$data->telefone}}" class="form-control" type="text" name="telefone" id="telefone" required>
                 <label for="profissao">Profissão:</label>
-                <input value="{{$data->profissao}}" class="form-control" type="text" name="profissao" id="profissao">
+                <input value="{{$data->profissao}}" class="form-control" type="text" name="profissao" id="profissao" required>
                 <label for="escolaridade_id">Escolaridade:</label>
-                <select class="form-select" aria-label="Default select example" id="escolaridade_id" name="escolaridade_id">
+                <select class="form-select" aria-label="Default select example" id="escolaridade_id" name="escolaridade_id" required>
                     @foreach ($escolaridade as $item)
                     <option {{ $data->escolaridade_id == $item->id ? 'selected' : '' }} value="{{$item->id}}">{{$item->escolaridade}}</option>
                     @endforeach

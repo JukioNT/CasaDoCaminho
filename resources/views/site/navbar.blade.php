@@ -1,13 +1,12 @@
 <nav class="navbar navbar-expand-md">
     <div class="logo">
         <div class="image">
-            <img src="/storage/images/imagem_vinhas.svg" alt="">
+            <img src="{{ asset('images/imagem_vinhas.svg') }}" alt="">
         </div>
         <div class="logo-text">
             <a class="navbar-brand" href="/">
-                <h2 class="py-2">Casa  Do  Caminho</h2>
+                <h2 class="py-2">Casa  Do  Caminho <br><p>centro espírita</p></h2>
             </a>
-            <p>Centro espírita</p>
         </div>
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault"
@@ -18,7 +17,7 @@
         <ul class="navbar-nav mr-auto">
             @if(Auth::check())
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
+                <a class="nav-link dropdown-toggle btn" href="#" id="dropdown01" data-bs-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">ADM</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" href="/noticias/lista">Noticias</a>
@@ -35,7 +34,7 @@
                 <a class="nav-link btn" href="/" aria-haspopup="true" aria-expanded="false">Home</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
+                <a class="nav-link dropdown-toggle btn" href="#" id="dropdown01" data-bs-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">Doações</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" href="/ajudar">Formas de ajudar</a>
@@ -43,10 +42,10 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/contato" aria-haspopup="true" aria-expanded="false">Contato</a>
+                <a class="nav-link btn" href="/contato" aria-haspopup="true" aria-expanded="false">Contato</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/sobrenos" aria-haspopup="true" aria-expanded="false">Sobre Nós</a>
+                <a class="nav-link btn" href="/sobrenos" aria-haspopup="true" aria-expanded="false">Sobre Nós</a>
             </li>
         </ul>
     </div>

@@ -13,7 +13,7 @@
                     @endforeach
                 </select>
                   <label for="quantidade">Quantidade a doar:</label>
-                  <input class="form-control" type="number" name="quantidade" id="quantidade">
+                  <input class="form-control" type="number" name="quantidade" id="quantidade" required>
                   <label for="familia_id">Familia a doar:</label>
                   <select class="form-select" aria-label="Default select example" id="familia_id" name="familia_id">
                     @foreach ($familias as $item)
