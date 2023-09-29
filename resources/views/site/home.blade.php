@@ -2,24 +2,24 @@
 @section('title', 'Casa Do Caminho')
 @section('body')
     @if (count($noticia) === 0)
-    @else
+    @else   
         <div class="album py-3">
             <div class="container" style="width: 50%">
-                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                     @if (count($noticia) != 1)
                         <div class="carousel-indicators">
                             @foreach ($noticia as $index => $item)
-                                <button type="button" data-bs-target="#carouselExampleCaptions"
+                                <button type="button" data-bs-target="#carouselExampleAutoplaying"
                                     data-bs-slide-to="{{ $index }}"
                                     @if ($index == 0) class="active noticia-button" aria-current="true" @else class="noticia-button" @endif
-                                    aria-label={{ 'Slide' . ($index + 1) }}></button>
+                                    aria-label="{{ 'Slide ' . ($index + 1) }}"></button>
                             @endforeach
                         </div>
                     @endif
                     <div class="carousel-inner">
-                        @foreach ($noticia as $item => $value)
-                            <div data-bs-interval="10"
-                                @if ($item == 0) class="carousel-item active" @else class="carousel-item" @endif>
+                        @foreach ($noticia as $index => $value)
+                            <div data-bs-interval="5000"
+                                @if ($index == 0) class="carousel-item active" @else class="carousel-item" @endif>
                                 <img src="/storage/{{ $value->imagem }}" alt="" class="d-block w-100 noticia-img">
                                 <div class="carousel-gradient"></div>
                                 <div class="carousel-caption d-none d-md-block">
@@ -30,14 +30,14 @@
                         @endforeach
                     </div>
                     @if (count($noticia) != 1)
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
                             data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon noticia-left-arrow" aria-hidden="true" ></span>
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
                             data-bs-slide="next">
-                            <span class="carousel-control-next-icon noticia-right-arrow" aria-hidden="true"></span>
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
                     @endif
@@ -45,7 +45,7 @@
             </div>
         </div>
     @endif
-
+    
     @if (count($evento) === 0)
         
     @else
@@ -70,7 +70,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="cpf">Digite seu CPF:</label>
-                            <input id="cpf" name="cpf" type="text" class="form-control" data-toggle="tooltip" data-placement="bottom" title="CPF inválido" onblur="verificaCPF(this)">
+                            <input id="cpf" name="cpf" type="text" class="form-control" data-toggle="tooltip" data-placement="bottom" title="CPF inválido" onkeyup="verificaCPF(this)">
                             <div class="invalid-feedback">
                                 CPF inválido.
                             </div>
@@ -94,6 +94,9 @@
     });
 </script>
 <script>
+
+    let isComplete = false;
+
     function getId(button){
         const id = button.id
         const input = document.getElementById('idprojeto')
@@ -105,18 +108,25 @@
         return cpfSemFormatacao;
     }
 
-    function verificaCPF(input) {
+    function verificaCPF(input){
         const invalidFeedback = input.nextElementSibling;
         const enviarButton = document.getElementById('enviarButton');
+        const cpfNumerico = input.value.replace(/\D/g, '');
 
-        if (TestaCPF(input.value)) {
-            input.classList.remove('is-invalid');
-            invalidFeedback.style.display = 'none';
-            enviarButton.removeAttribute('disabled');
-        } else {
-            input.classList.add('is-invalid');
-            invalidFeedback.style.display = 'block';
-            enviarButton.setAttribute('disabled', 'disabled');
+        if(cpfNumerico.length == 11){
+            isComplete = true
+        }            
+    
+        if(isComplete){
+            if (TestaCPF(input.value)) {
+                input.classList.remove('is-invalid');
+                invalidFeedback.style.display = 'none';
+                enviarButton.removeAttribute('disabled');
+            }else{
+                input.classList.add('is-invalid');
+                invalidFeedback.style.display = 'block';
+                enviarButton.setAttribute('disabled', 'disabled');
+            }
         }
     }
 
@@ -125,6 +135,9 @@
         var Soma;
         var Resto;
         Soma = 0;
+
+        if(strCPF.length < 11) return false
+
         if (strCPF == "00000000000") return false;
 
         for (var i = 1; i <= 9; i++) Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (11 - i);

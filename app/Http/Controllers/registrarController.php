@@ -45,7 +45,7 @@ class registrarController extends Controller
         $data->Endereco = $request->input('Endereco');
         $data->Telefone = $request->input('Telefone');
         $data->Nascimento = $request->input('Nascimento');
-        $data->Email = $request->input('Email');
+        $data->Email = $request->inputonblur('Email');
         $data->Disponibilidade = $request->input('Disponibilidade');
         $data->Religiao = $request->input('Religiao');
         $data->Afinidade = $request->input('Afinidade');
