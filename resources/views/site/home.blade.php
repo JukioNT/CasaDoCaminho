@@ -101,6 +101,7 @@
         const id = button.id
         const input = document.getElementById('idprojeto')
         input.value = id
+        BlockButton(button, false)
     }
 
     function removerFormatacaoCPF(cpfFormatado) {
@@ -121,12 +122,20 @@
             if (TestaCPF(input.value)) {
                 input.classList.remove('is-invalid');
                 invalidFeedback.style.display = 'none';
-                enviarButton.removeAttribute('disabled');
+                BlockButton(enviarButton, true);
             }else{
                 input.classList.add('is-invalid');
                 invalidFeedback.style.display = 'block';
-                enviarButton.setAttribute('disabled', 'disabled');
+                BlockButton(enviarButton, false);
             }
+        }
+    }
+
+    function BlockButton(button, value){
+        if(value){
+            enviarButton.removeAttribute('disabled');
+        }else{
+            enviarButton.setAttribute('disabled', 'disabled');
         }
     }
 
@@ -154,6 +163,7 @@
         if (Resto != parseInt(strCPF.substring(10, 11))) return false;
         return true;
     }
+
 
 </script>
 @endsection

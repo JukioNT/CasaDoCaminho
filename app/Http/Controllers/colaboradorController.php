@@ -70,8 +70,6 @@ class colaboradorController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $rota = $request->route();
-        dd( $rota);
         $data = Colaborador::find($id);
         if(isset($data)){
             $data->CPF = $request->input('CPF');

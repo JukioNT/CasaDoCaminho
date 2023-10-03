@@ -26,7 +26,7 @@ class registrarController extends Controller
                 $test = $eventoVerify[0]->id;
                 return redirect('/')->with('danger', 'Você já participa desse evento');
             }catch(Exception $e){
-                return view('site.participarEvento', compact('data'));
+                return view('site.participarEvento', compact('data', 'usuario'));
             }
             
         }catch(Exception $e){
@@ -45,7 +45,7 @@ class registrarController extends Controller
         $data->Endereco = $request->input('Endereco');
         $data->Telefone = $request->input('Telefone');
         $data->Nascimento = $request->input('Nascimento');
-        $data->Email = $request->inputonblur('Email');
+        $data->Email = $request->input('Email');
         $data->Disponibilidade = $request->input('Disponibilidade');
         $data->Religiao = $request->input('Religiao');
         $data->Afinidade = $request->input('Afinidade');
@@ -67,22 +67,32 @@ class registrarController extends Controller
         ->where('CPF', '=', $request->input('CPF'))
         ->get();
         
-        if($colaborador[0]->Email == $request->input("Email") && Hash::check($request->input('Senha'), $colaborador[0]->Senha)){
-            try{
-                $data = new ColaboradorEvento();
-                $id = Colaborador::select('id')
-                     ->from('colaboradors')
-                     ->where('CPF', '=', $request->input('CPF'))
-                     ->get();
-                $data->colaborador_id = $id[0]->id;
-                $data->evento_id = $request->input('id');
-                $data->save();
-                return redirect('/')->with('success', 'Você está participando desse evento');
-            }catch(Exception $e){
-                return redirect('/')->with('danger', 'Você já participa desse evento');
-            }
+        if(Hash::check($request->input('Senha'), $colaborador[0]->Senha)){
+            $data = new ColaboradorEvento();
+            $id = Colaborador::select('id')
+                    ->from('colaboradors')
+                    ->where('CPF', '=', $request->input('CPF'))
+                    ->get();
+            $data->colaborador_id = $id[0]->id;
+            $data->evento_id = $request->input('id');
+            $data->save();
+
+            //Atualiza dados usuário
+            $data = Colaborador::find($id[0]->id);
+            $data->CPF = $request->input('CPF');
+            $data->Nome = $request->input('Nome');
+            $data->Endereco = $request->input('Endereco');
+            $data->Telefone = $request->input('Telefone');
+            $data->Nascimento = $request->input('Nascimento');
+            $data->Email = $request->input('Email');
+            $data->Disponibilidade = $request->input('Disponibilidade');
+            $data->Religiao = $request->input('Religiao');
+            $data->Afinidade = $request->input('Afinidade');
+            $data->save();
+
+            return redirect('/')->with('success', 'Você está participando desse evento');
         }else{
-            return redirect('/')->with('danger', 'Email inválido');
+            return redirect('/')->with('danger', 'Senha inválida');
         }
     }
 }
