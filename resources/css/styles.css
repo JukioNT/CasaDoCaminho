@@ -160,7 +160,7 @@ body {
 }
 
 .info{
-    margin-top: 100px;
+    margin-top: 50px;
     height: 200px;
     padding-left: 7%;
 }
@@ -176,9 +176,36 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
+.info h3{
+    font-size: 25px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .info p{
     width: 70%;
-    font-size: 15px;
+    font-size: 20px;
+    text-align: justify;
+}
+
+.info ul{
+    list-style: none;
+}
+
+.info ul li{
+    font-size: 20px;
+}
+
+.info ul li::before{
+    content: "•";
+    margin: 0 15px;
+    color: var(--accent);
+}
+
+.sub{
+    margin-left: 30px;
 }
 
 .eventos{
