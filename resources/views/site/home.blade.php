@@ -4,7 +4,7 @@
     @if (count($noticia) === 0)
     @else   
         <div class="album py-3">
-            <div class="container" style="width: 50%">
+            <div class="container carousel-container">
                 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                     @if (count($noticia) != 1)
                         <div class="carousel-indicators">
