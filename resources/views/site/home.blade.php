@@ -20,7 +20,7 @@
                         @foreach ($noticia as $index => $value)
                             <div data-bs-interval="5000"
                                 @if ($index == 0) class="carousel-item active" @else class="carousel-item" @endif>
-                                <img src="/storage/{{ $value->imagem }}" alt="" class="d-block w-100 noticia-img">
+                                <img src="{{ $value->imagem }}" alt="" class="d-block w-100 noticia-img">
                                 <div class="carousel-gradient"></div>
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>{{ $value['titulo'] }}</h5>

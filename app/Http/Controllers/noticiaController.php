@@ -34,11 +34,19 @@ class noticiaController extends Controller
      */
     public function store(Request $request)
     {
-        $path = $request->file('imagem')->store('images', 'public');
+        //$path = $request->file('imagem')->store('images', 'local');
+
+        $result = $request->file('imagem');
+        $teste = $result . uniqid();
+        $ext = $result->getClientOriginalExtension();
+        $result->move('images', $teste.'.'.$ext);
+
+        $teste = substr($teste, 5);
+
         $data = new Noticia();
         $data->titulo = $request->input('titulo');
         $data->descricao = $request->input('descricao');
-        $data->imagem = $path;
+        $data->imagem = "public/images/".$teste.".".$ext;
         $data->save();
         return redirect('/noticias/lista')->with('success', 'Noticia cadastrada com sucesso');
     }
