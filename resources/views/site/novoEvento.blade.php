@@ -13,7 +13,7 @@
                 <label for="imagem">Imagem do Evento:</label>
                 <input type="file" class="form-control" name="imagem" id="imagem" required>
                 <label for="dataEvento">Data e hora do evento:</label>
-                <input type="datetime-local" class="form-control" name="dataEvento" id="dataEvento" required>
+                <input type="datetime-local" max="9999-12-31T23:59" class="form-control" name="dataEvento" id="dataEvento" required>
                 
             </div>
             <button type="submit" class="btn btn-success btn-sm">Salvar</button>
