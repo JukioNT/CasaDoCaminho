@@ -60,6 +60,32 @@
                                 <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="colaborador-button" id="{{ $value->id }}" onclick="getId(this)">Seja um colaborador</button>
                             </div>
                         </div>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalLabel">Ser um colaborador</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <form action="/registrar">
+                                    <div class="modal-body">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="cpf">Digite seu CPF:</label>
+                                            <input id="cpf" name="cpf" type="text" class="form-control" data-toggle="tooltip" data-placement="bottom" title="CPF inválido" onkeyup="verificaCPF(this)">
+                                            <div class="invalid-feedback">
+                                                CPF inválido.
+                                            </div>
+                                            <input type="hidden" id="idprojeto" name="idprojeto" value="">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary" id="enviarButton">Enviar</button>
+                                    </div>
+                                </form>
+                              </div>
+                            </div>
+                        </div>
                     @endforeach
                 </div>
             </div>
