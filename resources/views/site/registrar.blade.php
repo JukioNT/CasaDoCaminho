@@ -30,7 +30,7 @@
                 <input type="hidden"name="CPF" id="CPF" value="{{$data['cpf']}}">
                 <input type="hidden"name="id" id="id" value="{{$data['id']}}">
             </div>
-            <button type="submit" class="btn btn-success btn-sm">Salvar</button>
+            <button type="submit" class="btn btn-success btn-sm mt-2">Salvar</button>
         </form>
     </div>
 @endsection

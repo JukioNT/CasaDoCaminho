@@ -33,7 +33,7 @@ class tipoDoacaoController extends Controller
         $data->tipo_doacao = $request->input('tipo_doacao');
         $data->quantidade = $request->input('quantidade');
         $data->save();
-        return redirect('/tipodoacoes/lista')->with('success', 'Doação cadastrada com sucesso');
+        return redirect('/tipodoacoes/lista')->with('success', 'Produto cadastrado com sucesso');
     }
 
     /**
@@ -49,7 +49,11 @@ class tipoDoacaoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = TipoDoacao::find($id);
+        if(isset($data)){
+            return view('site.editaTipoDoacoes', compact('data'));
+        }
+        return redirect('/tipodoacoes/lista')->with('danger', 'Erro ao editar produto');
     }
 
     /**
@@ -57,7 +61,15 @@ class tipoDoacaoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = TipoDoacao::find($id);
+        if(isset($data)){
+            $data->tipo_doacao = $request->input('tipo_doacao');
+            $data->quantidade = $request->input('quantidade');
+            $data->save();
+        }else{
+            return redirect('/tipodoacoes/lista')->with('danger', 'Erro ao editar produto');
+        }
+        return redirect('/tipodoacoes/lista')->with('success', 'Produto editado com sucesso');
     }
 
     /**
@@ -65,7 +77,13 @@ class tipoDoacaoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = TipoDoacao::find($id);
+        if(isset($data)){
+            $data->delete();
+        }else{
+            return redirect('/tipodoacoes/lista')->with('danger', 'Erro ao deletar produto');
+        }
+        return redirect('/tipodoacoes/lista')->with('success', 'Produto deletado com sucesso');
     }
 
     public function form(Request $request, string $id){

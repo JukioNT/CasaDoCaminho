@@ -31,9 +31,14 @@ class filhoController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
+    {   
         $familias = Familia::all();
-        return view('site.novoFilho', compact('familias'));
+        foreach($familias as $familia){
+            $filhos = Filho::select('filhos.id')->where('filhos.familia_id', '=', $familia->id)->get();
+            $nFilhos = count($filhos);
+            $familia['nFilhos'] = $nFilhos;
+        }
+        return view('site.novoFilho', compact('familias', 'filhos'));
     }
 
     /**

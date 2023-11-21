@@ -17,7 +17,7 @@
                 <label for="nomeCompanheiro" style="display:none">Nome Companheiro:</label>
                 <input class="form-control" type="hidden" name="nomeCompanheiro" id="nomeCompanheiro" required>
                 <label for="nascimento">Nascimento:</label>
-                <input class="form-control" type="date" name="nascimento" id="nascimento" required>
+                <input class="form-control" type="date" name="nascimento" id="nascimento" max="9999-12-31" required>
                 <label for="endereco">Endereço:</label>
                 <input class="form-control" type="text" name="endereco" id="endereco" required>
                 <label for="telefone">Telefone:</label>
@@ -31,7 +31,7 @@
                     @endforeach
                 </select>
                 <label for="Nfilhos">Número de Filhos:</label>
-                <input class="form-control" type="number" name="Nfilhos" id="Nfilhos" required>
+                <input class="form-control" type="number" name="Nfilhos" id="Nfilhos" min="0" required>
                 <label for="renda">Renda Familiar:</label>
                 <input class="form-control" type="number" name="renda" id="renda" required>
                 <label for="recebeajuda">Recebe Ajuda:</label>
@@ -40,7 +40,7 @@
                     <option value="N">Não</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-success btn-sm">Salvar</button>
+            <button type="submit" class="btn btn-success btn-sm mt-2">Salvar</button>
         </form>
     </div>
 @endsection

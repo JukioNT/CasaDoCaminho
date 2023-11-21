@@ -77,6 +77,9 @@ Route::post('/doacoes', [App\Http\Controllers\doacaoController::class, 'store'])
 
 //Rotas Tipo Doações
 Route::get('/tipodoacoes/lista', [App\Http\Controllers\tipoDoacaoController::class, 'index'])->name('listaTipoDoacoes');
+Route::get('/tipodoacoes/editar/{id}', [App\Http\Controllers\tipoDoacaoController::class, 'edit'])->name('editaTipoDoacoes');
+Route::get('/tipodoacoes/deletar/{id}', [App\Http\Controllers\tipoDoacaoController::class, 'destroy'])->name('deletaTipoDoacoes');
+Route::post('/tipodoacoes/{id}', [App\Http\Controllers\tipoDoacaoController::class, 'update'])->name('gravaTipoDoacoes');
 Route::get('/tipodoacoes/incrementaform/{id}', [App\Http\Controllers\tipoDoacaoController::class, 'form'])->name('formincrementaDoacoes');
 Route::post('/tipodoacoes/incrementa/{id}', [App\Http\Controllers\tipoDoacaoController::class, 'increment'])->name('incrementaDoacoes');
 Route::get('/tipodoacoes/cadastrar', [App\Http\Controllers\tipoDoacaoController::class, 'create'])->name('novoTipoDoacao');

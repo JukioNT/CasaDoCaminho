@@ -5,10 +5,10 @@
     <h1 class="py-4">Lista de familias</h1>
     @if (count($familias) == 0)
         <p style="text-align: center;">Não há familias cadastradas</p>
-        <a href="/familias/cadastrar" class="btn btn-success">Novo familia</a>
+        <a href="/familias/cadastrar" class="btn btn-success">Nova familia</a>
     @else
         <div class="card-body" style="margin-top: 50px;">
-            <a href="/familias/cadastrar" class="btn btn-success">Novo familia</a>
+            <a href="/familias/cadastrar" class="btn btn-success">Nova familia</a>
             <table class="table table-ordered table-hover" id="tabelaEventos">
                 <thead>
                     <tr>

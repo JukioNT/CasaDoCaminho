@@ -33,14 +33,6 @@
             <li class="nav-item">
                 <a class="nav-link btn" href="/" aria-haspopup="true" aria-expanded="false">Home</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle btn" href="#" id="dropdown01" data-bs-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">Doações</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="/ajudar">Formas de ajudar</a>
-                    <a class="dropdown-item" href="/precisamos">O que precisa?</a>
-                </div>
-            </li>
             <li class="nav-item">
                 <a class="nav-link btn" href="/contato" aria-haspopup="true" aria-expanded="false">Contato</a>
             </li>

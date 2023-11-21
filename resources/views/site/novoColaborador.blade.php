@@ -25,7 +25,7 @@
                 <label for="titulo">Afinidade:</label>
                 <input type="text" class="form-control" name="Afinidade" id="Afinidade" required/>
             </div>
-            <button type="submit" class="btn btn-success btn-sm">Salvar</button>
+            <button type="submit" class="btn btn-success btn-sm mt-2">Salvar</button>
         </form>
     </div>
 @endsection

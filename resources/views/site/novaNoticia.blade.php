@@ -13,7 +13,7 @@
                 <label for="imagem">Imagem da Noticia:</label>
                 <input type="file" class="form-control" name="imagem" id="imagem" required>
             </div>
-            <button type="submit" class="btn btn-success btn-sm">Salvar</button>
+            <button type="submit" class="btn btn-success btn-sm mt-2">Salvar</button>
         </form>
     </div>
 @endsection

@@ -15,7 +15,7 @@
                 <label for="dataEvento">Imagem da Noticia:</label>
                 <input type="datetime-local" max="9999-12-31T23:59" class="form-control" name="dataEvento" id="dataEvento" value="{{$data->dataEvento}}" required>
             </div>
-            <button type="submit" class="btn btn-success btn-sm">Salvar</button>
+            <button type="submit" class="btn btn-success btn-sm mt-2">Salvar</button>
         </form>
     </div>
 @endsection
